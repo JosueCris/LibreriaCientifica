@@ -3,47 +3,37 @@ package Modelo;
 import java.io.Serializable;
 
 public class LibroAlmacen implements Serializable {
-    private String codLibroAlmacen;
-    private int codRepisa;
+    private Libros codLibroAlmacen;
+    private Almacen codRepisa;
 
     public LibroAlmacen() {
 
     }
 
-    public LibroAlmacen(String codLibroAlmacen) {
-        this.codLibroAlmacen = codLibroAlmacen;
-    }
-
-    public LibroAlmacen(int codRepisa) {
-        this.codRepisa = codRepisa;
-    }
-
-    public LibroAlmacen(String codLibroAlmacen, int codRepisa) {
+    public LibroAlmacen(Libros codLibroAlmacen, Almacen codRepisa) {
         this.codLibroAlmacen = codLibroAlmacen;
         this.codRepisa = codRepisa;
     }
 
-    public String getCodLibroAlmacen() {
+    public Libros getCodLibroAlmacen() {
         return codLibroAlmacen;
     }
 
-    public void setCodLibroAlmacen(String codLibroAlmacen) {
+    public void setCodLibroAlmacen(Libros codLibroAlmacen) {
         this.codLibroAlmacen = codLibroAlmacen;
     }
 
-    public int getCodRepisa() {
+    public Almacen getCodRepisa() {
         return codRepisa;
     }
 
-    public void setCodRepisa(int codRepisa) {
+    public void setCodRepisa(Almacen codRepisa) {
         this.codRepisa = codRepisa;
     }
 
     @Override
     public String toString() {
-        return "LibroAlmacen{" +
-                "codLibroAlmacen='" + codLibroAlmacen + '\'' +
-                ", codRepisa=" + codRepisa +
-                '}';
+        return "CodLibroAlmacen: " + codLibroAlmacen +
+               "CodRepisa: " + codRepisa + "\n";
     }
 }

@@ -20,7 +20,7 @@ public class MateriaDAO {
 
     private static final String insertSQL = "INSERT INTO Materia VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Materia;";
-    private static final String updateSQL ="UPDATE Idioma SET Nombre_Materia=?";
+    private static final String updateSQL = "UPDATE Materia SET Nombre_Materia=? WHERE CodMateria=?";
 
 
     public void Insertar(Materia materia) {
@@ -69,6 +69,7 @@ public class MateriaDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(2, materia.getCodMateria());
             ps.setString(1, materia.getNombreMateria());
 
             registros = ps.executeUpdate();

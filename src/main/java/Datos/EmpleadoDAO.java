@@ -21,8 +21,7 @@ public class EmpleadoDAO {
 
     private static final String insertSQL = "INSERT INTO Empleado VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Empleado;";
-    private static final String updateSQL ="UPDATE Editorial SET Nombre=?, aPaterno=?, aMaterno=?, Genero=?, Fecha_Nacimiento=?, Fecha_Contratacion=?, Direccion=?, Correo=?, Telefomo=?, E_Cargo=?";
-
+    private static final String updateSQL = "UPDATE Empleado SET Nombre=?, aPaterno=?, aMaterno=?, Genero=?, Fecha_Nacimiento=?, Fecha_Contratacion=?, Direccion=?, Correo=?, Telefono=?, E_Cargo=? WHERE CodEmpleado=?";
 
 
     public void Insertar(Empleado empleado) {
@@ -33,12 +32,14 @@ public class EmpleadoDAO {
             ps.setString(3, empleado.getaPaterno());
             ps.setString(4, empleado.getaMaterno());
             ps.setString(5, empleado.getGenero());
-            ps.setString(6, empleado.getFechaNacimiento());
-            ps.setString(7, empleado.getFechaContratacion());
+            ps.setDate(6, java.sql.Date.valueOf(empleado.getFechaNacimiento()));
+ //           ps.setString(6, empleado.getFechaNacimiento());
+            ps.setDate(7, java.sql.Date.valueOf(empleado.getFechaContratacion()));
+ //           ps.setString(7, empleado.getFechaContratacion());
             ps.setString(8, empleado.getDireccion());
             ps.setString(9, empleado.getCorreo());
             ps.setString(10, empleado.getTelefono());
-            ps.setInt(11, empleado.geteCargo());
+            ps.setInt(11, Integer.parseInt(empleado.geteCargo()));
 
             ps.executeUpdate();
             System.out.println("Registro exitoso!!!");
@@ -66,7 +67,7 @@ public class EmpleadoDAO {
                 empleado.setDireccion(rs.getString("Direccion"));
                 empleado.setCorreo(rs.getString("Correo"));
                 empleado.setTelefono(rs.getString("Telefono"));
-                empleado.seteCargo(rs.getInt("E_Cargo"));
+                empleado.seteCargo(rs.getString("E_Cargo"));
 
 
                 lista.add(empleado);
@@ -85,21 +86,24 @@ public class EmpleadoDAO {
         return lista;
     }
 
-    public int Actualizar(Empleado empleado ) {
+    public int Actualizar(Empleado empleado) {
         int registros = 0;
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(11, empleado.getCodEmpleado());
             ps.setString(1, empleado.getNombre());
             ps.setString(2, empleado.getaPaterno());
             ps.setString(3, empleado.getaMaterno());
             ps.setString(4, empleado.getGenero());
-            ps.setString(5, empleado.getFechaNacimiento());
-            ps.setString(6, empleado.getFechaContratacion());
+            ps.setDate(5, java.sql.Date.valueOf(empleado.getFechaNacimiento()));
+//            ps.setString(5, empleado.getFechaNacimiento());
+            ps.setDate(6, java.sql.Date.valueOf(empleado.getFechaContratacion()));
+//            ps.setString(6, empleado.getFechaContratacion());
             ps.setString(7, empleado.getDireccion());
             ps.setString(8, empleado.getCorreo());
             ps.setString(9, empleado.getTelefono());
-            ps.setInt(10, empleado.geteCargo());
+            ps.setInt(10, Integer.parseInt(empleado.geteCargo()));
 
 
             registros = ps.executeUpdate();

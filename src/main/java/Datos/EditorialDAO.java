@@ -20,7 +20,7 @@ public class EditorialDAO {
 
     private static final String insertSQL = "INSERT INTO Editorial VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Editorial;";
-    private static final String updateSQL ="UPDATE Editorial SET Nombre_Editorial=?, Contacto=?, Telefono=?, Correo=?, Direccion=?, Ciudad=?, Pais=?";
+    private static final String updateSQL = "UPDATE Editorial SET Nombre_Editorial=?, Contacto=?, Telefono=?, Correo=?, Direccion=?, Ciudad=?, Pais=? WHERE codEditorial=?";
 
 
 
@@ -83,6 +83,7 @@ public class EditorialDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(8, editorial.getCodEditorial());
             ps.setString(1, editorial.getNombreEditorial());
             ps.setString(2, editorial.getContacto());
             ps.setString(3, editorial.getTelefono());

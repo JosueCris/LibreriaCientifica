@@ -20,7 +20,7 @@ public class AlmacenDAO {
 
     private static final String insertSQL = "INSERT INTO Almacen VALUES (?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Almacen;";
-    private static final String updateSQL ="UPDATE Almacen SET Numero_Ejemplares=?, PasilloA=?";
+    private static final String updateSQL =" UPDATE Almacen SET Numero_Ejemplares=?, PasillosA=? WHERE CodRepisa=?";
 
 
 
@@ -72,6 +72,7 @@ public class AlmacenDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(3, almacen.getCodRepisa());
             ps.setInt(1, almacen.getNumeroEjemplares());
             ps.setInt(2, almacen.getPasillosA());
 

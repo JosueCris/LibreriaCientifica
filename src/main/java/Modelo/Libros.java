@@ -132,12 +132,12 @@ public class Libros implements Serializable {
         return "ISBN: " + isbn +
                "\nTitulo: " + titulo +
                "\nAño Edicion: " + anioEdicion +
-               "\nR_Editorial: " + rEditorial +
-               "\nR_Idioma: " + rIdioma +
+               "\nEditorial: " + rEditorial +
+               "\nIdioma: " + rIdioma +
                "\nNumero Paginas: " + numeroPaginas +
-               "\nR_Materia: " + rMateria +
+               "\nMateria: " + rMateria +
                "\nPrecio: " + precio +
                "\nSinopsis: " + sinopsis  +
-               "\nR_Estante: " + rEstante + "\n";
+               "\nEstante: " + rEstante + "\n";
     }
 }

@@ -20,7 +20,7 @@ public class IdiomaDAO {
 
     private static final String insertSQL = "INSERT INTO Idioma VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Idioma;";
-    private static final String updateSQL ="UPDATE Idioma SET Nombre_Idioma=?";
+    private static final String updateSQL = "UPDATE Idioma SET Nombre_Idioma=? WHERE CodIdioma=?";
 
 
     public void Insertar(Idioma idioma) {
@@ -69,6 +69,7 @@ public class IdiomaDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(2, idioma.getCodIdioma());
             ps.setString(1, idioma.getNombreIdioma());
 
             registros = ps.executeUpdate();

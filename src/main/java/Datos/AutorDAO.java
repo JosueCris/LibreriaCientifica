@@ -20,7 +20,7 @@ public class AutorDAO {
 
     private static final String insertSQL = "INSERT INTO Autor VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Autor;";
-    private static final String updateSQL ="UPDATE Cargo SET Nombre_Completo=?";
+    private static final String updateSQL = "UPDATE Autor SET Nombre_Completo=? WHERE CodAutor=?";
 
 
     public void Insertar(Autor autor) {
@@ -69,6 +69,7 @@ public class AutorDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(2, autor.getCodAutor());
             ps.setString(1, autor.getNombreCompleto());
 
             registros = ps.executeUpdate();

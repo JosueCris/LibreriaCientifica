@@ -20,7 +20,7 @@ public class EstanteDAO {
 
     private static final String insertSQL = "INSERT INTO Estante VALUES (?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Estante;";
-    private static final String updateSQL ="UPDATE Estante SET Numero_Ejemplares=?, Pasillo=?";
+    private static final String updateSQL = "UPDATE Estante SET Numero_Ejemplares=?, Pasillo=? WHERE CodEstante=?";
 
     public EstanteDAO(Conexion con) {
         this.con = con;
@@ -75,6 +75,7 @@ public class EstanteDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(3, estante.getCodEstante());
             ps.setInt(1, estante.getNumeroEjemplares());
             ps.setInt(2, estante.getPasillo());
 

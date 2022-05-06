@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class NotaVenta implements Serializable {
     private int codNota;
-    private int rCliente;
+    private String rCliente;
     private String rLibro;
     private int cantidad;
     private String tipoPago;
@@ -19,7 +19,7 @@ public class NotaVenta implements Serializable {
         this.codNota = codNota;
     }
 
-    public NotaVenta(int rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra) {
+    public NotaVenta(String rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra) {
         this.rCliente = rCliente;
         this.rLibro = rLibro;
         this.cantidad = cantidad;
@@ -28,7 +28,7 @@ public class NotaVenta implements Serializable {
         this.fechaCompra = fechaCompra;
     }
 
-    public NotaVenta(int codNota, int rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra) {
+    public NotaVenta(int codNota, String rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra) {
         this.codNota = codNota;
         this.rCliente = rCliente;
         this.rLibro = rLibro;
@@ -46,11 +46,11 @@ public class NotaVenta implements Serializable {
         this.codNota = codNota;
     }
 
-    public int getrCliente() {
+    public String getrCliente() {
         return rCliente;
     }
 
-    public void setrCliente(int rCliente) {
+    public void setrCliente(String rCliente) {
         this.rCliente = rCliente;
     }
 
@@ -96,14 +96,12 @@ public class NotaVenta implements Serializable {
 
     @Override
     public String toString() {
-        return "NotaVenta{" +
-                "codNota=" + codNota +
-                ", rCliente=" + rCliente +
-                ", rLibro='" + rLibro + '\'' +
-                ", cantidad=" + cantidad +
-                ", tipoPago='" + tipoPago + '\'' +
-                ", rEmpleado=" + rEmpleado +
-                ", fechaCompra='" + fechaCompra + '\'' +
-                '}';
+        return "CodNota: " + codNota +
+               "\nCleinte: " + rCliente +
+               "\nLibro: " + rLibro +
+               "\nCantidad: " + cantidad +
+               "\nTipo Pago: " + tipoPago +
+               "\nCodEmpleado: " + rEmpleado +
+               "\nFecha Compra: " + fechaCompra + "\n";
     }
 }

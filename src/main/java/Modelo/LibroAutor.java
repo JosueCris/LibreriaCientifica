@@ -3,47 +3,37 @@ package Modelo;
 import java.io.Serializable;
 
 public class LibroAutor implements Serializable {
-    private String codLibroAutor;
-    private int codAutor;
+    private Libros codLibroAutor;
+    private Autor codAutor;
 
     public LibroAutor() {
 
     }
 
-    public LibroAutor(String codLibroAutor) {
-        this.codLibroAutor = codLibroAutor;
-    }
-
-    public LibroAutor(int codAutor) {
-        this.codAutor = codAutor;
-    }
-
-    public LibroAutor(String codLibroAutor, int codAutor) {
+    public LibroAutor(Libros codLibroAutor, Autor codAutor) {
         this.codLibroAutor = codLibroAutor;
         this.codAutor = codAutor;
     }
 
-    public String getCodLibroAutor() {
+    public Libros getCodLibroAutor() {
         return codLibroAutor;
     }
 
-    public void setCodLibroAutor(String codLibroAutor) {
+    public void setCodLibroAutor(Libros codLibroAutor) {
         this.codLibroAutor = codLibroAutor;
     }
 
-    public int getCodAutor() {
+    public Autor getCodAutor() {
         return codAutor;
     }
 
-    public void setCodAutor(int codAutor) {
+    public void setCodAutor(Autor codAutor) {
         this.codAutor = codAutor;
     }
 
     @Override
     public String toString() {
-        return "LibroAutor{" +
-                "codLibroAutor='" + codLibroAutor + '\'' +
-                ", codAutor=" + codAutor +
-                '}';
+        return "CodLibroAutor: " + codLibroAutor +
+               "\nCodAutor: " + codAutor + "\n";
     }
 }

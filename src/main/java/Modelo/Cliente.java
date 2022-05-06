@@ -85,13 +85,11 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" +
-                "codCliente=" + codCliente +
-                ", nombre='" + nombre + '\'' +
-                ", aPaterno='" + aPaterno + '\'' +
-                ", aMaterno='" + aMaterno + '\'' +
-                ", correo='" + correo + '\'' +
-                ", telefono='" + telefono + '\'' +
-                '}';
+        return "CodCliente: " + codCliente +
+               "\nNombre: " + nombre +
+               "\nApellido Paterno: " + aPaterno +
+               "\nApellido Materno: " + aMaterno +
+               "\nCorreo: " + correo +
+               "\nTelefono: " + telefono + "\n";
     }
 }

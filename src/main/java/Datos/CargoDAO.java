@@ -20,7 +20,7 @@ public class CargoDAO {
 
     private static final String insertSQL = "INSERT INTO Cargo VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Cargo;";
-    private static final String updateSQL ="UPDATE Cargo SET Nombre_Cargo=?";
+    private static final String updateSQL = "UPDATE Cargo SET Nombre_Cargo=? WHERE CodCargo=?";
 
 
     public void Insertar(Cargo cargo) {
@@ -69,6 +69,7 @@ public class CargoDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setInt(2, cargo.getCodCargo());
             ps.setString(1, cargo.getNombreCargo());
 
             registros = ps.executeUpdate();

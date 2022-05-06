@@ -31,9 +31,9 @@ public class LibrosDAO {
                                             " ON Libros.R_Materia = Materia.CodMateria" +
                                             " JOIN Estante" +
                                             " ON Libros.R_Estante = Estante.CodEstante;";
-    private static final String updateSQL ="UPDATE Libros " +
-                                           "SET Titulo=?, Año_Edicion=?, R_Editorial=?,R_Idioma=?, Numero_Paginas=?, R_Materia=?, Precio=?, Sinopsis=?, R_Estante=?";
-
+    private static final String updateSQL = "UPDATE Libros " +
+                                            "SET Titulo=?, Año_Edicion=?, R_Editorial=?,R_Idioma=?, Numero_Paginas=?, R_Materia=?, Precio=?, Sinopsis=?, R_Estante=? WHERE ISBN=?";
+    private static final String deleteSQL = "DELETE * FROM Libro WHERE CodLibro=?;";
 
 
     public void Insertar(Libros libros) {
@@ -42,10 +42,10 @@ public class LibrosDAO {
             ps.setString(1, libros.getIsbn());
             ps.setString(2, libros.getTitulo());
             ps.setInt(3, libros.getAnioEdicion());
-            ps.setString(4, libros.getrEditorial());
-            ps.setString(5, libros.getrIdioma());
+            ps.setInt(4, Integer.parseInt(libros.getrEditorial()));
+            ps.setInt(5, Integer.parseInt(libros.getrIdioma()));
             ps.setInt(6, libros.getNumeroPaginas());
-            ps.setString(7, libros.getrMateria());
+            ps.setInt(7, Integer.parseInt(libros.getrMateria()));
             ps.setDouble(8, libros.getPrecio());
             ps.setString(9, libros.getSinopsis());
             ps.setInt(10, libros.getrEstante());
@@ -98,6 +98,7 @@ public class LibrosDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
+            ps.setString(9, libros.getIsbn());
             ps.setString(1, libros.getTitulo());
             ps.setInt(2, libros.getAnioEdicion());
             ps.setString(3, libros.getrEditorial());

@@ -13,7 +13,7 @@ public class Empleado implements Serializable {
     private String direccion;
     private String correo;
     private String telefono;
-    private int eCargo;
+    private String eCargo;
 
     public Empleado() {
 
@@ -23,7 +23,7 @@ public class Empleado implements Serializable {
         this.codEmpleado = codEmpleado;
     }
 
-    public Empleado(String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, int eCargo) {
+    public Empleado(String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, String eCargo) {
         this.nombre = nombre;
         this.aPaterno = aPaterno;
         this.aMaterno = aMaterno;
@@ -36,7 +36,7 @@ public class Empleado implements Serializable {
         this.eCargo = eCargo;
     }
 
-    public Empleado(int codEmpleado, String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, int eCargo) {
+    public Empleado(int codEmpleado, String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, String eCargo) {
         this.codEmpleado = codEmpleado;
         this.nombre = nombre;
         this.aPaterno = aPaterno;
@@ -130,17 +130,17 @@ public class Empleado implements Serializable {
         this.telefono = telefono;
     }
 
-    public int geteCargo() {
+    public String geteCargo() {
         return eCargo;
     }
 
-    public void seteCargo(int eCargo) {
+    public void seteCargo(String eCargo) {
         this.eCargo = eCargo;
     }
 
     @Override
     public String toString() {
-        return "CodEmpleado" + codEmpleado +
+        return "CodEmpleado: " + codEmpleado +
                "\nNombre: " + nombre +
                "\nApellido Paterno: " + aPaterno +
                "\nApellido Materno: " + aMaterno +
