@@ -75,5 +75,14 @@ public class Main {
 //        notaVentaDAO.Actualizar(notaVenta);
 //        notaVentaDAO.Consulta(notaVenta);
 
+
+//        LibroAutorDAO libroAutorDAO = new LibroAutorDAO();
+//        LibroAutor libroAutor = new LibroAutor();
+//        libroAutorDAO.Consulta(libroAutor);
+
+//        LibroAlmacenDAO libroAlmacenDAO = new LibroAlmacenDAO();
+//        LibroAlmacen libroAlmacen = new LibroAlmacen();
+//        libroAlmacenDAO.Consulta(libroAlmacen);
+
     }
 }
