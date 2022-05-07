@@ -20,7 +20,7 @@ public class LibroAutorDAO {
         this.connection = con.getConnection();
     }
 
-    //private static final String insertSQL = "INSERT INTO Idioma VALUES (?, ?);";
+    private static final String insertSQL = "INSERT INTO Libro_Autor VALUES (?, ?);";
     private static final String selectSQL = "SELECT Libros.Titulo AS Libro, Autor.Nombre_Completo AS Autor " +
                                             "FROM Libro_Autor " +
                                             "JOIN Libros " +

@@ -33,7 +33,8 @@ public class LibrosDAO {
                                             " ON Libros.R_Estante = Estante.CodEstante;";
     private static final String updateSQL = "UPDATE Libros " +
                                             "SET Titulo=?, Año_Edicion=?, R_Editorial=?,R_Idioma=?, Numero_Paginas=?, R_Materia=?, Precio=?, Sinopsis=?, R_Estante=? WHERE ISBN=?";
-    private static final String deleteSQL = "DELETE * FROM Libro WHERE CodLibro=?;";
+    private static final String querySQL =  "SELECT * FROM Libros WHERE ISBN=?;";
+    private static final String deleteSQL = "DELETE * FROM Libro WHERE ISBN=?;";
 
 
     public void Insertar(Libros libros) {
@@ -92,6 +93,7 @@ public class LibrosDAO {
         }
         return lista;
     }
+
 
     public int Actualizar(Libros libros) {
         int registros = 0;
