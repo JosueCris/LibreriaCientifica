@@ -38,9 +38,12 @@ public class Main {
 //        editorialDAO.Consulta(editorial);
 
 
-//        EmpleadoDAO empleadoDAO = new EmpleadoDAO();
+        EmpleadoDAO empleadoDAO = new EmpleadoDAO();
 //        Empleado empleado = new Empleado(6, "Rosa", "Pedro", "Luis", "Femenino", "2000-09-21", "2020-06-26", "Lomas 4", "rosapelu@gmail.com", "2291093618","5");
 //        empleadoDAO.Actualizar(empleado);
+        Empleado empleado = empleadoDAO.getEmpleado(7);
+        System.out.println(empleado);
+
 //        empleadoDAO.Consulta(empleado);
 
 //        EstanteDAO estanteDAO = new EstanteDAO();

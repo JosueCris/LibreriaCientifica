@@ -1,6 +1,5 @@
 package Datos;
 
-import Modelo.Editorial;
 import Modelo.Empleado;
 
 import java.sql.*;
@@ -22,7 +21,8 @@ public class EmpleadoDAO {
     private static final String insertSQL = "INSERT INTO Empleado VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Empleado;";
     private static final String updateSQL = "UPDATE Empleado SET Nombre=?, aPaterno=?, aMaterno=?, Genero=?, Fecha_Nacimiento=?, Fecha_Contratacion=?, Direccion=?, Correo=?, Telefono=?, E_Cargo=? WHERE CodEmpleado=?";
-
+    private static final String searchSQL = "SELECT * FROM Empleado WHERE CodEmpleado=?;";
+    private static final String deleteSQL = "DELETE FROM Empleado WHERE CodEmpleado=?;";
 
     public void Insertar(Empleado empleado) {
         try {
@@ -118,5 +118,45 @@ public class EmpleadoDAO {
         }
 
         return registros;
+    }
+
+    public Empleado getEmpleado (int CodEmpleado) {
+        Empleado empleado = null;
+        try {
+            ps = this.connection.prepareStatement(searchSQL);
+            ps.setInt(1, CodEmpleado);
+            rs = this.ps.executeQuery();
+
+            if (rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+            empleado = new Empleado(rs.getString("Nombre"), rs.getString("aPaterno"), rs.getString("aMaterno"), rs.getString("Genero"), rs.getString("Fecha_Nacimiento"), rs.getString("Fecha_Contratacion"), rs.getString("Direccion"), rs.getString("Correo"), rs.getString("Telefono"), rs.getString("E_Cargo"));
+
+            con.close(rs);
+            con.close(ps);
+            
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return empleado;
+    }
+
+    public Empleado Eliminar (int CodEmpleado) {
+        Empleado empleado = getEmpleado(CodEmpleado);
+        try {
+            if (empleado == null)
+                return null;
+            this.ps = this.connection.prepareStatement(deleteSQL);
+
+            this.ps.setInt(1, CodEmpleado);
+            this.ps.executeUpdate();
+
+            con.close(ps);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return empleado;
     }
 }

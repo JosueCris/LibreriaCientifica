@@ -9,5 +9,6 @@ Datos\CargoDAO.class
 Datos\ClienteDAO.class
 Datos\LibroAlmacenDAO.class
 Datos\AutorDAO.class
+Controlador\InsertaLibros.class
 Datos\IdiomaDAO.class
 Datos\LibrosDAO.class

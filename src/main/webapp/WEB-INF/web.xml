@@ -3,5 +3,50 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>ServletLibros</servlet-name>
+        <servlet-class>Controlador.ServletLibros</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaLibros</servlet-name>
+        <servlet-class>Controlador.InsertaLibros</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletAutor</servlet-name>
+        <servlet-class>Controlador.ServletAutor</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletCliente</servlet-name>
+        <servlet-class>Controlador.ServletCliente</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletIdioma</servlet-name>
+        <servlet-class>Controlador.ServletIdioma</servlet-class>
+    </servlet>
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>ListaClientes</servlet-name>-->
+<!--        <url-pattern>/ListaClientes</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>RegistrarCliente</servlet-name>-->
+<!--        <url-pattern>/RegistrarCliente</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>BuscarCliente</servlet-name>-->
+<!--        <url-pattern>/BuscarCliente</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>EliminarCliente</servlet-name>-->
+<!--        <url-pattern>/EliminarCliente</url-pattern>-->
+<!--    </servlet-mapping>-->
 </web-app>

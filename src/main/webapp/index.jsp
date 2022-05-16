@@ -9,8 +9,13 @@
         </p>
 
         <div class="enlaces">
-            <li><font face="times new roman" size="5px"><a href="libros.jsp">LIBROS</a></font></li>
-            <li><font face="times new roman" size="5px"><a href="autores.jsp">AUTORES</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="libros.jsp">Lista de Libros</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="inserta_libros.jsp">Inserta Libros</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="autores.jsp">Lista de Autores</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="cliente.jsp">Lista de Clientes</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="idioma.jsp">Lista de Idiomas</a></font></li>
+
+
         </div>
 
         <div class="contenido">
