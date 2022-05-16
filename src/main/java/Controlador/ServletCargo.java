@@ -1,22 +1,29 @@
 package Controlador;
 
+import Datos.CargoDAO;
+import Modelo.Cargo;
+
+import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
-@WebServlet(name = "ServletAutor", urlPatterns = {"/ServletAutor"})
+@WebServlet(name = "ServletCargo", urlPatterns = {"/ServletCargo"})
 public class ServletCargo extends HttpServlet {
-    public static final long serialVersionUID = 1L;
-
-    public ServletCargo() {
-        super();
-    }
+    @Resource(name = "jdbc/database")
+    Cargo cargo = new Cargo();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        try{
+            CargoDAO cargoDAO = new CargoDAO();
+            req.getSession().setAttribute("Datos", cargoDAO.Consulta(cargo));
+        } catch (Exception e){
+            req.getSession().setAttribute("Datos", new ArrayList<Cargo>());
+            e.printStackTrace();
+        }
+        resp.sendRedirect("/cargo.jsp");
     }
 }

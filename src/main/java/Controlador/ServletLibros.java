@@ -7,15 +7,12 @@ import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import javax.sql.DataSource;
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.*;
 
 @WebServlet(name = "ServletLibros", urlPatterns = {"/ServletLibros"})
 public class ServletLibros extends HttpServlet {
     @Resource(name = "jdbc/database")
-    private DataSource conexion;
     Libros libros = new Libros();
 
     @Override
