@@ -6,16 +6,15 @@ import java.sql.*;
 import java.util.*;
 
 public class EditorialDAO {
-    private final Conexion con;
+    private Conexion con = new Conexion();
     private Connection connection;
     private PreparedStatement ps = null;
     private Statement stm = null;
     private ResultSet rs = null;
     private final List<Editorial> lista = new ArrayList<>();
 
-    public EditorialDAO() {
-        con = new Conexion();
-        this.connection = con.getConnection();
+    public EditorialDAO(Connection connection) {
+        this.connection = connection;
     }
 
     private static final String insertSQL = "INSERT INTO Editorial VALUES (?, ?, ?, ?, ?, ?, ?, ?);";

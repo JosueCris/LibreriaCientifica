@@ -6,9 +6,7 @@ import Modelo.Libros;
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
@@ -43,11 +41,11 @@ public class InsertaLibros extends HttpServlet {
         rEstante = Integer.parseInt(req.getParameter("rEstante"));
 
         try{
-            //Connection connection = conexion.getConnection();
-            LibrosDAO librosDAO = new LibrosDAO();
+            Connection connection = conexion.getConnection();
+            LibrosDAO librosDAO = new LibrosDAO(connection);
             Libros libros = new Libros(isbn, titulo, anioEdicion, rEditorial, rIdioma, numeroPaginas, rMateria, precio, sinopsis, rEstante);
             librosDAO.Insertar(libros);
-            //connection.close();
+            connection.close();
         }
         catch (Exception e){
             e.printStackTrace();

@@ -6,13 +6,8 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <servlet>
-        <servlet-name>ServletLibros</servlet-name>
-        <servlet-class>Controlador.ServletLibros</servlet-class>
-    </servlet>
-
-    <servlet>
-        <servlet-name>InsertaLibros</servlet-name>
-        <servlet-class>Controlador.InsertaLibros</servlet-class>
+        <servlet-name>ServletAlmacen</servlet-name>
+        <servlet-class>Controlador.ServletAlmacen</servlet-class>
     </servlet>
 
     <servlet>
@@ -21,8 +16,18 @@
     </servlet>
 
     <servlet>
+        <servlet-name>ServletCargo</servlet-name>
+        <servlet-class>Controlador.ServletCargo</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>ServletCliente</servlet-name>
         <servlet-class>Controlador.ServletCliente</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>ServletEditorial</servlet-name>
+        <servlet-class>Controlador.ServletEditorial</servlet-class>
     </servlet>
 
     <servlet>
@@ -30,23 +35,181 @@
         <servlet-class>Controlador.ServletIdioma</servlet-class>
     </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>ListaClientes</servlet-name>-->
-<!--        <url-pattern>/ListaClientes</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet>
+        <servlet-name>ServletLibros</servlet-name>
+        <servlet-class>Controlador.ServletLibros</servlet-class>
+    </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>RegistrarCliente</servlet-name>-->
-<!--        <url-pattern>/RegistrarCliente</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet>
+        <servlet-name>ServletMateria</servlet-name>
+        <servlet-class>Controlador.ServletMateria</servlet-class>
+    </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>BuscarCliente</servlet-name>-->
-<!--        <url-pattern>/BuscarCliente</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet>
+        <servlet-name>ServletNotaVenta</servlet-name>
+        <servlet-class>Controlador.ServletNotaVenta</servlet-class>
+    </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>EliminarCliente</servlet-name>-->
-<!--        <url-pattern>/EliminarCliente</url-pattern>-->
-<!--    </servlet-mapping>-->
+
+
+
+
+    <servlet>
+        <servlet-name>InsertaAlmacen</servlet-name>
+        <servlet-class>Controlador.InsertaAlmacen</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaAutor</servlet-name>
+        <servlet-class>Controlador.InsertaAutor</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaCargo</servlet-name>
+        <servlet-class>Controlador.InsertaCargo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaCliente</servlet-name>
+        <servlet-class>Controlador.InsertaCliente</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaEditorial</servlet-name>
+        <servlet-class>Controlador.InsertaEditorial</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaEmpleado</servlet-name>
+        <servlet-class>Controlador.InsertaEmpleado</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaEstante</servlet-name>
+        <servlet-class>Controlador.InsertaEstante</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaIdioma</servlet-name>
+        <servlet-class>Controlador.InsertaIdioma</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaLibros</servlet-name>
+        <servlet-class>Controlador.InsertaLibros</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaMateria</servlet-name>
+        <servlet-class>Controlador.InsertaMateria</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>InsertaNotaVenta</servlet-name>
+        <servlet-class>Controlador.InsertaNotaVenta</servlet-class>
+    </servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>ServletAlmacen</servlet-name>
+        <url-pattern>/ServletAlmacen</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaAutor</servlet-name>
+        <url-pattern>/InsertaAutor</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaCargo</servlet-name>
+        <url-pattern>/InsertaCargo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaCliente</servlet-name>
+        <url-pattern>/InsertaCliente</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaEditorial</servlet-name>
+        <url-pattern>/InsertaEditorial</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaEmpleado</servlet-name>
+        <url-pattern>/InsertaEmpleado</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaEstante</servlet-name>
+        <url-pattern>/InsertaEstante</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaIdioma</servlet-name>
+        <url-pattern>/InsertaIdioma</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaMateria</servlet-name>
+        <url-pattern>/InsertaMateria</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaNotaVenta</servlet-name>
+        <url-pattern>/InsertaNotaVenta</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet-mapping>
+        <servlet-name>InsertaAlmacen</servlet-name>
+        <url-pattern>/InsertaAlmacen</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletAutor</servlet-name>
+        <url-pattern>/ServletAutor</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletCargo</servlet-name>
+        <url-pattern>/ServletCargo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletCliente</servlet-name>
+        <url-pattern>/ServletCliente</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletEditorial</servlet-name>
+        <url-pattern>/ServletEditorial</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletIdioma</servlet-name>
+        <url-pattern>/ServletIdioma</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletLibros</servlet-name>
+        <url-pattern>/ServletLibros</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>InsertaLibros</servlet-name>
+        <url-pattern>/InsertaLibros</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletMateria</servlet-name>
+        <url-pattern>/ServletMateria</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ServletNotaVenta</servlet-name>
+        <url-pattern>/ServletNotaVenta</url-pattern>
+    </servlet-mapping>
 </web-app>

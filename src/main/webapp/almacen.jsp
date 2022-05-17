@@ -1,11 +1,12 @@
-<%@ page import="Modelo.Almacen" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: JOSUE
   Date: 15/05/2022
   Time: 10:38 p. m.
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page import="Modelo.Almacen" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -35,8 +36,9 @@
         </tr><%
                 }
             }
-            else
-                response.sendRedirect("/LibreriaCientifica/ServletAlmacen");
+            else{
+                    response.sendRedirect("/LibreriaCientifica/ServletAlmacen");
+                }
             session.removeAttribute("Datos");
         %>
         </table>
@@ -45,5 +47,6 @@
         </form>
     </div>
 </main>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 </html>

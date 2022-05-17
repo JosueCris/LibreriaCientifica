@@ -7,18 +7,22 @@ import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
+import javax.sql.DataSource;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 @WebServlet(name = "ServletCliente", urlPatterns = {"/ServletCliente"})
 public class ServletCliente extends HttpServlet {
     @Resource(name = "jdbc/database")
-    Cliente cliente = new Cliente();
+    private DataSource conexion;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
-            ClienteDAO clienteDAO = new ClienteDAO();
+            Connection connection = conexion.getConnection();
+            ClienteDAO clienteDAO = new ClienteDAO(connection);
+            Cliente cliente = new Cliente();
             req.getSession().setAttribute("Datos", clienteDAO.Consulta(cliente));
         } catch (Exception e){
             req.getSession().setAttribute("Datos", new ArrayList<Cliente>());

@@ -6,16 +6,15 @@ import java.sql.*;
 import java.util.*;
 
 public class EstanteDAO {
-    private final Conexion con;
+    Conexion con = new Conexion();
     private Connection connection;
     private PreparedStatement ps = null;
     private Statement stm = null;
     private ResultSet rs = null;
     private final List<Estante> lista = new ArrayList<>();
 
-    public EstanteDAO() {
-        con = new Conexion();
-        this.connection = con.getConnection();
+    public EstanteDAO(Connection connection) {
+        this.connection = connection;
     }
 
     private static final String insertSQL = "INSERT INTO Estante VALUES (?, ?, ?);";

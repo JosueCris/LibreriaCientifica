@@ -6,16 +6,15 @@ import java.sql.*;
 import java.util.*;
 
 public class IdiomaDAO {
-    private final Conexion con;
+    Conexion con = new Conexion();
     private Connection connection;
     private PreparedStatement ps = null;
     private Statement stm = null;
     private ResultSet rs = null;
     private final List<Idioma> lista = new ArrayList<>();
 
-    public IdiomaDAO() {
-        con = new Conexion();
-        this.connection = con.getConnection();
+    public IdiomaDAO(Connection connection) {
+        this.connection = connection;
     }
 
     private static final String insertSQL = "INSERT INTO Idioma VALUES (?, ?);";

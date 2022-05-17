@@ -6,16 +6,15 @@ import java.sql.*;
 import java.util.*;
 
 public class AutorDAO {
-    private final Conexion con;
+    private Conexion con = new Conexion();
     private Connection connection;
     private PreparedStatement ps = null;
     private Statement stm = null;
     private ResultSet rs = null;
     private final List<Autor> lista = new ArrayList<>();
 
-    public AutorDAO() {
-        con = new Conexion();
-        this.connection = con.getConnection();
+    public AutorDAO(Connection connection) {
+        this.connection = connection;
     }
 
     private static final String insertSQL = "INSERT INTO Autor VALUES (?, ?);";

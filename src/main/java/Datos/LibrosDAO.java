@@ -6,16 +6,15 @@ import java.sql.*;
 import java.util.*;
 
 public class LibrosDAO {
-    private final Conexion con;
+    Conexion con = new Conexion();
     private Connection connection;
     private PreparedStatement ps = null;
     private Statement stm = null;
     private ResultSet rs = null;
     private final List<Libros> lista = new ArrayList<>();
 
-    public LibrosDAO() {
-        con = new Conexion();
-        this.connection = con.getConnection();
+    public LibrosDAO(Connection connection) {
+        this.connection = connection;
     }
 
 // Esto lo tengo pendiente en lo que resuelvo mi conflicto con la incongruencia entre la BD y los constructores
