@@ -29,6 +29,6 @@ public class ServletLibros extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Libros>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/libros.jsp");
+        resp.sendRedirect("/LibreriaCientifica/libros.jsp");
     }
 }
