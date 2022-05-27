@@ -19,6 +19,7 @@ public class MateriaDAO {
 
     private static final String insertSQL = "INSERT INTO Materia VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Materia;";
+    private static final String searchSQL = "SELECT * FROM Materia WHERE CodMateria = ?;";
     private static final String updateSQL = "UPDATE Materia SET Nombre_Materia=? WHERE CodMateria=?";
 
 
@@ -61,6 +62,32 @@ public class MateriaDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Materia getMateria(int codMateria) {
+        Materia materia = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codMateria);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            materia = new Materia(rs.getInt("CodMateria"),
+                    rs.getString("Nombre_Materia"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodMateria: " + materia.getCodMateria() + "\nNombre Materia: " + materia.getNombreMateria());
+
+        return materia;
     }
 
     public int Actualizar(Materia materia) {

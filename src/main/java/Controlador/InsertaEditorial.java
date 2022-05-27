@@ -47,6 +47,6 @@ public class InsertaEditorial extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_editorial.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_editorial.jsp");
     }
 }

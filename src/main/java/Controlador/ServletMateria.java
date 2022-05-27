@@ -30,6 +30,6 @@ public class ServletMateria extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Materia>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/materia.jsp");
+        resp.sendRedirect("/LibreriaCientifica/materia.jsp");
     }
 }

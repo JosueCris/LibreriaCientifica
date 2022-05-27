@@ -28,6 +28,6 @@ public class ServletCliente extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Cliente>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/cliente.jsp");
+        resp.sendRedirect("/LibreriaCientifica/cliente.jsp");
     }
 }

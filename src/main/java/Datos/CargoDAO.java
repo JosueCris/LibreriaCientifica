@@ -19,6 +19,7 @@ public class CargoDAO {
 
     private static final String insertSQL = "INSERT INTO Cargo VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Cargo;";
+    private static final String searchSQL = "SELECT * FROM Cargo WHERE CodCargo = ?;";
     private static final String updateSQL = "UPDATE Cargo SET Nombre_Cargo=? WHERE CodCargo=?";
 
 
@@ -61,6 +62,32 @@ public class CargoDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Cargo getCargo(int codCargo) {
+        Cargo cargo = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codCargo);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            cargo = new Cargo(rs.getInt("CodCargo"),
+                    rs.getString("Nombre_Cargo"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodCargo: " + cargo.getCodCargo() + "\nNombre Cargo: " + cargo.getNombreCargo());
+
+        return cargo;
     }
 
     public int Actualizar(Cargo cargo) {

@@ -1,5 +1,6 @@
 package Datos;
 
+import Modelo.Editorial;
 import Modelo.Empleado;
 
 import java.sql.*;
@@ -85,6 +86,41 @@ public class EmpleadoDAO {
         return lista;
     }
 
+    public Empleado getEmpleado(int codEmpleado) {
+        Empleado empleado = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codEmpleado);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            empleado = new Empleado(rs.getInt("CodEmpleado"),
+                    rs.getString("Nombre"),
+                    rs.getString("aPaterno"),
+                    rs.getString("aMaterno"),
+                    rs.getString("Genero"),
+                    rs.getString("Fecha_Nacimiento"),
+                    rs.getString("Fecha_Contratacion"),
+                    rs.getString("Direccion"),
+                    rs.getString("Correo"),
+                    rs.getString("Telefono"),
+                    rs.getString("E_Cargo"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodEmpleado: " + empleado.getCodEmpleado() + "\nNombre: " + empleado.getNombre() + "\nApellido Paterno: " + empleado.getaPaterno() + "\nApellido Materno: " + empleado.getaMaterno() + "\nGenero: " + empleado.getGenero() + "\nFecha Nacimiento: " + empleado.getFechaNacimiento() + "\nFecha Contratación: " + empleado.getFechaContratacion() + "\nDirección: " + empleado.getDireccion() + "\nCorreo: " + empleado.getCorreo() + "\nTeléfono: " + empleado.getTelefono() + "\nCargo: " + empleado.geteCargo());
+
+        return empleado;
+    }
+
     public int Actualizar(Empleado empleado) {
         int registros = 0;
         try {
@@ -119,28 +155,6 @@ public class EmpleadoDAO {
         return registros;
     }
 
-    public Empleado getEmpleado (int CodEmpleado) {
-        Empleado empleado = null;
-        try {
-            ps = this.connection.prepareStatement(searchSQL);
-            ps.setInt(1, CodEmpleado);
-            rs = this.ps.executeQuery();
-
-            if (rs.next()) {
-                con.close(rs);
-                con.close(ps);
-                return null;
-            }
-            empleado = new Empleado(rs.getString("Nombre"), rs.getString("aPaterno"), rs.getString("aMaterno"), rs.getString("Genero"), rs.getString("Fecha_Nacimiento"), rs.getString("Fecha_Contratacion"), rs.getString("Direccion"), rs.getString("Correo"), rs.getString("Telefono"), rs.getString("E_Cargo"));
-
-            con.close(rs);
-            con.close(ps);
-            
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-        return empleado;
-    }
 
     public Empleado Eliminar (int CodEmpleado) {
         Empleado empleado = getEmpleado(CodEmpleado);

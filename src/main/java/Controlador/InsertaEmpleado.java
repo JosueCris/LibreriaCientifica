@@ -55,6 +55,6 @@ public class InsertaEmpleado extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_empleado.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_empleado.jsp");
     }
 }

@@ -21,8 +21,8 @@ public class InsertaAutor extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        codAutor = Integer.parseInt(req.getParameter("codRepisa"));
-        nombreCompleto = req.getParameter("numeroEjemplares");
+        codAutor = Integer.parseInt(req.getParameter("codAutor"));
+        nombreCompleto = req.getParameter("nombreCompleto");
 
         try{
             Connection connection = conexion.getConnection();
@@ -35,6 +35,6 @@ public class InsertaAutor extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_autores.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_autores.jsp");
     }
 }

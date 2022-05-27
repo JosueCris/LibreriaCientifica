@@ -32,6 +32,6 @@ public class ServletEditorial extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Libros>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/editorial.jsp");
+        resp.sendRedirect("/LibreriaCientifica/editorial.jsp");
     }
 }

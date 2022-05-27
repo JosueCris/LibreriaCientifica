@@ -1,5 +1,6 @@
 package Datos;
 
+import Modelo.Editorial;
 import Modelo.Libros;
 
 import java.sql.*;
@@ -32,7 +33,17 @@ public class LibrosDAO {
                                             " ON Libros.R_Estante = Estante.CodEstante;";
     private static final String updateSQL = "UPDATE Libros " +
                                             "SET Titulo=?, Año_Edicion=?, R_Editorial=?,R_Idioma=?, Numero_Paginas=?, R_Materia=?, Precio=?, Sinopsis=?, R_Estante=? WHERE ISBN=?";
-    private static final String querySQL =  "SELECT * FROM Libros WHERE ISBN=?;";
+    private static final String searchSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante" +
+                                            " FROM Libros" +
+                                            " JOIN Editorial" +
+                                            " ON Libros.R_Editorial = Editorial.CodEditorial" +
+                                            " JOIN Idioma" +
+                                            " ON Libros.R_Idioma = Idioma.CodIdioma" +
+                                            " JOIN Materia" +
+                                            " ON Libros.R_Materia = Materia.CodMateria" +
+                                            " JOIN Estante" +
+                                            " ON Libros.R_Estante = Estante.CodEstante" +
+                                            " WHERE ISBN=?;";
     private static final String deleteSQL = "DELETE * FROM Libro WHERE ISBN=?;";
 
 
@@ -93,6 +104,39 @@ public class LibrosDAO {
         return lista;
     }
 
+    public Libros getLibros(String isbn) {
+        Libros libros = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setString(1, isbn);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            libros = new Libros(rs.getString("ISBN"),
+                    rs.getString("Titulo"),
+                    rs.getInt("Año_Edicion"),
+                    rs.getString("Editorial"),
+                    rs.getString("Idioma"),
+                    rs.getInt("Numero_Paginas"),
+                    rs.getString("Materia"),
+                    rs.getDouble("Precio"),
+                    rs.getString("Sinopsis"),
+                    rs.getInt("Estante"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("ISBN: " + libros.getIsbn() + "\nTítulo: " + libros.getTitulo() + "\nAño Edición: " + libros.getAnioEdicion() + "\nEditorial: " + libros.getrEditorial() + "\nIdioma: " + libros.getrIdioma() + "\nPaginas: " +libros.getNumeroPaginas() + "\nMateria: " + libros.getrMateria() + "\nPrecio: " + libros.getPrecio() + "\nSinopsis: " + libros.getSinopsis());
+
+        return libros;
+    }
 
     public int Actualizar(Libros libros) {
         int registros = 0;

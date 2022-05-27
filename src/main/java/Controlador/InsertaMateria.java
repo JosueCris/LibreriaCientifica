@@ -37,6 +37,6 @@ public class InsertaMateria extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_idioma.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_idioma.jsp");
     }
 }

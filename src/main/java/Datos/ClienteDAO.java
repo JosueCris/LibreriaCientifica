@@ -1,5 +1,6 @@
 package Datos;
 
+import Modelo.Autor;
 import Modelo.Cliente;
 
 import java.sql.*;
@@ -20,6 +21,7 @@ public class ClienteDAO {
     private static final String insertSQL = "INSERT INTO Cliente " +
             "VALUES (?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM CLiente;";
+    private static final String searchSQL = "SELECT * FROM Cliente WHERE CodCliente = ?;";
     private static final String updateSQL = "UPDATE Cliente SET Nombre=?, aPaterno=?, aMaterno=?, Correo=?, Telefono=? WHERE CodCliente=?";
 
 
@@ -70,6 +72,36 @@ public class ClienteDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Cliente getCliente(int codCliente) {
+        Cliente cliente = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codCliente);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            cliente = new Cliente(rs.getInt("CodCliente"),
+                    rs.getString("Nombre"),
+                    rs.getString("aPaterno"),
+                    rs.getString("aMaterno"),
+                    rs.getString("Correo"),
+                    rs.getString("Telefono"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodCliente: " + cliente.getCodCliente() + "\nNombre: " + cliente.getNombre() + "\nApellido Paterno: " + cliente.getaPaterno() + "\nApellido Materno: " + cliente.getaMaterno() + "\nCorreo: " + cliente.getCorreo() + "\nTelefono: " + cliente.getTelefono());
+
+        return cliente;
     }
 
     public int Actualizar(Cliente cliente) {

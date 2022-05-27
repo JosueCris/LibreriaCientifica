@@ -19,6 +19,7 @@ public class IdiomaDAO {
 
     private static final String insertSQL = "INSERT INTO Idioma VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Idioma;";
+    private static final String searchSQL = "SELECT * FROM Idioma WHERE CodIdioma = ?;";
     private static final String updateSQL = "UPDATE Idioma SET Nombre_Idioma=? WHERE CodIdioma=?";
 
 
@@ -61,6 +62,32 @@ public class IdiomaDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Idioma getIdioma(int codIdioma) {
+        Idioma idioma = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codIdioma);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            idioma = new Idioma(rs.getInt("codIdioma"),
+                    rs.getString("Nombre_Idioma"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodIdioma: " + idioma.getCodIdioma() + "\nNombre Idioma: " + idioma.getNombreIdioma());
+
+        return idioma;
     }
 
     public int Actualizar(Idioma idioma) {

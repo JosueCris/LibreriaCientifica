@@ -48,6 +48,6 @@ public class InsertaNotaVenta extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_notaventa.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_notaventa.jsp");
     }
 }

@@ -51,6 +51,6 @@ public class InsertaLibros extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_libros.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_libros.jsp");
     }
 }

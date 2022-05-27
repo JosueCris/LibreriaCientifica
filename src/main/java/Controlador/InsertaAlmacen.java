@@ -37,6 +37,6 @@ public class InsertaAlmacen extends HttpServlet {
                 e.printStackTrace();
             }
 
-            resp.sendRedirect("/inserta_almacen.jsp");
+            resp.sendRedirect("/LibreriaCientifica/inserta_almacen.jsp");
         }
 }

@@ -35,6 +35,6 @@ public class InsertaCargo extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_cargo.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_cargo.jsp");
     }
 }

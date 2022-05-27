@@ -33,6 +33,6 @@ public class ServletIdioma extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Idioma>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/idioma.jsp");
+        resp.sendRedirect("/LibreriaCientifica/idioma.jsp");
     }
 }

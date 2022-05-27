@@ -27,6 +27,15 @@ public class NotaVentaDAO {
                                             "ON Nota_Venta.R_Libro = Libros.ISBN " +
                                             "JOIN Empleado " +
                                             "ON Nota_Venta.R_Empleado = Empleado.CodEmpleado;";
+    private static final String searchSQL = "SELECT Nota_Venta.CodNota, Cliente.Nombre AS Cliente, Libros.Titulo AS Libro, Nota_Venta.Cantidad, Nota_Venta.Tipo_Pago, Empleado.CodEmpleado, Nota_Venta.Fecha_Compra " +
+                                            "FROM Nota_Venta " +
+                                            "JOIN Cliente " +
+                                            "ON Nota_Venta.R_Cliente = Cliente.CodCliente " +
+                                            "JOIN Libros " +
+                                            "ON Nota_Venta.R_Libro = Libros.ISBN " +
+                                            "JOIN Empleado " +
+                                            "ON Nota_Venta.R_Empleado = Empleado.CodEmpleado " +
+                                            "WHERE CodNota=?;";
     private static final String updateSQL = "UPDATE Nota_Venta " +
                                             "SET R_Cliente=?, R_Libro=?, Cantidad=?, Tipo_Pago=?, R_Empleado=?, Fecha_Compra=? " +
                                             "WHERE CodNota=?;";
@@ -81,6 +90,37 @@ public class NotaVentaDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public NotaVenta getNotaVenta(int codNota) {
+        NotaVenta notaVenta = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codNota);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            notaVenta = new NotaVenta(rs.getInt("CodNota"),
+                    rs.getString("Cliente"),
+                    rs.getString("Libro"),
+                    rs.getInt("Cantidad"),
+                    rs.getString("Tipo_Pago"),
+                    rs.getInt("CodEmpleado"),
+                    rs.getString("Fecha_Compra"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodNota: " + notaVenta.getCodNota() + "\nCliente: " + notaVenta.getrCliente() + "\nLibro: " + notaVenta.getrLibro() + "\nCantidad: " + notaVenta.getCantidad() + "\nTipo Pago: " + notaVenta.getTipoPago() + "\nEmpleado: " + notaVenta.getrEmpleado() + "\nFecha Compra: " + notaVenta.getFechaCompra());
+
+        return notaVenta;
     }
 
     public int Actualizar(NotaVenta notaVenta) {

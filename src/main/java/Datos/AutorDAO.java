@@ -19,6 +19,7 @@ public class AutorDAO {
 
     private static final String insertSQL = "INSERT INTO Autor VALUES (?, ?);";
     private static final String selectSQL = "SELECT * FROM Autor;";
+    private static final String searchSQL = "SELECT * FROM Autor WHERE CodAutor = ?;";
     private static final String updateSQL = "UPDATE Autor SET Nombre_Completo=? WHERE CodAutor=?";
 
 
@@ -61,6 +62,32 @@ public class AutorDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Autor getAutor(int codAutor) {
+        Autor autor = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codAutor);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            autor = new Autor(rs.getInt("CodAutor"),
+                    rs.getString("Nombre_Completo"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodAutor: " + autor.getCodAutor() + "\nNombre Completo: " + autor.getNombreCompleto());
+
+        return autor;
     }
 
     public int Actualizar(Autor autor) {

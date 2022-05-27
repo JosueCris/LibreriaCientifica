@@ -43,6 +43,6 @@ public class InsertaCliente extends HttpServlet{
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_cliente.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_cliente.jsp");
     }
 }

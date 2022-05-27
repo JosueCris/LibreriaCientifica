@@ -39,6 +39,6 @@ public class InsertaEstante extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/inserta_estante.jsp");
+        resp.sendRedirect("/LibreriaCientifica/inserta_estante.jsp");
     }
 }

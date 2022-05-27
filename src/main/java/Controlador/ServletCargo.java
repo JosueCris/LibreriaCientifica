@@ -28,6 +28,6 @@ public class ServletCargo extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Cargo>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/cargo.jsp");
+        resp.sendRedirect("/LibreriaCientifica/cargo.jsp");
     }
 }

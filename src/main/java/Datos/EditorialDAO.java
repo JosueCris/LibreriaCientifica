@@ -1,5 +1,6 @@
 package Datos;
 
+import Modelo.Cliente;
 import Modelo.Editorial;
 
 import java.sql.*;
@@ -19,9 +20,8 @@ public class EditorialDAO {
 
     private static final String insertSQL = "INSERT INTO Editorial VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Editorial;";
+    private static final String searchSQL = "SELECT * FROM Editorial WHERE CodEditorial = ?;";
     private static final String updateSQL = "UPDATE Editorial SET Nombre_Editorial=?, Contacto=?, Telefono=?, Correo=?, Direccion=?, Ciudad=?, Pais=? WHERE codEditorial=?";
-
-
 
     public void Insertar(Editorial editorial) {
         try {
@@ -75,6 +75,38 @@ public class EditorialDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Editorial getEditorial(int codEditorial) {
+        Editorial editorial = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codEditorial);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            editorial = new Editorial(rs.getInt("CodEditorial"),
+                    rs.getString("Nombre_Editorial"),
+                    rs.getString("Contacto"),
+                    rs.getString("Telefono"),
+                    rs.getString("Correo"),
+                    rs.getString("Direccion"),
+                    rs.getString("Ciudad"),
+                    rs.getString("Pais"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodEditorial: " + editorial.getCodEditorial() + "\nNombre: " + editorial.getNombreEditorial() + "\nContacto: " + editorial.getContacto() + "\nTelefono: " + editorial.getTelefono() + "\nCorreo: " + editorial.getCorreo() + "\nDireccion: " + editorial.getDireccion() + "\nCiudad: " + editorial.getCiudad() + "\nPaís: " + editorial.getPais());
+
+        return editorial;
     }
 
     public int Actualizar(Editorial editorial) {

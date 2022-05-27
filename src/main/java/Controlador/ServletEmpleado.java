@@ -32,6 +32,6 @@ public class ServletEmpleado extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Cargo>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/empleado.jsp");
+        resp.sendRedirect("/LibreriaCientifica/empleado.jsp");
     }
 }

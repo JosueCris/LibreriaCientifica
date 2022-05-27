@@ -29,6 +29,6 @@ public class ServletAlmacen extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Almacen>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/LibreriaCientifica/src/main/webapp/almacen.jsp");
+        resp.sendRedirect("/LibreriaCientifica/almacen.jsp");
     }
 }

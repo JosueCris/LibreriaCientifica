@@ -32,6 +32,6 @@ public class ServletEstante extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Cargo>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/estante.jsp");
+        resp.sendRedirect("/LibreriaCientifica/estante.jsp");
     }
 }

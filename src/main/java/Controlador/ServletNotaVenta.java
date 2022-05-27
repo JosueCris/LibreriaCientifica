@@ -30,6 +30,6 @@ public class ServletNotaVenta extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<NotaVenta>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/notaventa.jsp");
+        resp.sendRedirect("/LibreriaCientifica/notaventa.jsp");
     }
 }

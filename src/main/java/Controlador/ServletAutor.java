@@ -28,6 +28,6 @@ public class ServletAutor extends HttpServlet {
             req.getSession().setAttribute("Datos", new ArrayList<Autor>());
             e.printStackTrace();
         }
-        resp.sendRedirect("/autores.jsp");
+        resp.sendRedirect("/LibreriaCientifica/autores.jsp");
     }
 }

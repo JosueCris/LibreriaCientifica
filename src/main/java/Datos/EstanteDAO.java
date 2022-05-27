@@ -1,5 +1,6 @@
 package Datos;
 
+import Modelo.Almacen;
 import Modelo.Estante;
 
 import java.sql.*;
@@ -19,6 +20,7 @@ public class EstanteDAO {
 
     private static final String insertSQL = "INSERT INTO Estante VALUES (?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Estante;";
+    private static final String searchSQL = "SELECT * FROM Estante WHERE CodEstante = ?;";
     private static final String updateSQL = "UPDATE Estante SET Numero_Ejemplares=?, Pasillo=? WHERE CodEstante=?";
 
     public EstanteDAO(Conexion con) {
@@ -67,6 +69,33 @@ public class EstanteDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Estante getEstante(int codEstante) {
+        Estante estante = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codEstante);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            estante = new Estante(rs.getInt("CodEstante"),
+                    rs.getInt("Numero_Ejemplares"),
+                    rs.getInt("Pasillo"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodEstante: " + estante.getCodEstante() + "\nNumero Ejemplares: " + estante.getNumeroEjemplares() + "\nPasillo: " + estante.getPasillo());
+
+        return estante;
     }
 
     public int Actualizar(Estante estante) {

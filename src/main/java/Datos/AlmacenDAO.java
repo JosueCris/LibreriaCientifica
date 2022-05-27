@@ -19,6 +19,7 @@ public class AlmacenDAO {
 
     private static final String insertSQL = "INSERT INTO Almacen VALUES (?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Almacen;";
+    private static final String searchSQL = "SELECT * FROM Almacen WHERE CodRepisa = ?;";
     private static final String updateSQL =" UPDATE Almacen SET Numero_Ejemplares=?, PasillosA=? WHERE CodRepisa=?";
 
 
@@ -64,6 +65,33 @@ public class AlmacenDAO {
             e.printStackTrace();
         }
         return lista;
+    }
+
+    public Almacen getAlmacen(int codAlmacen) {
+        Almacen almacen = null;
+        try {
+            ps = connection.prepareStatement(searchSQL);
+            ps.setInt(1, codAlmacen);
+            rs = ps.executeQuery();
+
+            if (!rs.next()) {
+                con.close(rs);
+                con.close(ps);
+                return null;
+            }
+
+            almacen = new Almacen(rs.getInt("CodRepisa"),
+                    rs.getInt("Numero_Ejemplares"),
+                    rs.getInt("PasillosA"));
+            con.close(rs);
+            con.close(ps);
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("CodRepisa: " + almacen.getCodRepisa() + "\nNumero Ejemplares: " + almacen.getNumeroEjemplares() + "\nPasillo: " + almacen.getPasillosA());
+
+        return almacen;
     }
 
     public int Actualizar(Almacen almacen) {
