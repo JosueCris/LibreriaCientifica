@@ -21,7 +21,8 @@
             <p>Apellido Paterno <input type="text" name = "aPaterno"> </p>
             <p>Apellido Materno <input type="text" name = "aMaterno"> </p>
             <p>Correo <input type="text" name = "correo"> </p>
-            <p>Telefono <input type="text" name = "Telefono"> </p>
+            <p>Telefono <input type="text" name = "telefono"> </p>
+            <p>Status <input type="text" name = "status"> </p>
             <p class="center-content">
                 <input type="submit" value="Ingresar"/>
             </p>

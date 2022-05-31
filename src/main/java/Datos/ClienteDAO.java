@@ -19,10 +19,10 @@ public class ClienteDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Cliente " +
-            "VALUES (?, ?, ?, ?, ?, ?);";
+            "VALUES (?, ?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM CLiente;";
     private static final String searchSQL = "SELECT * FROM Cliente WHERE CodCliente = ?;";
-    private static final String updateSQL = "UPDATE Cliente SET Nombre=?, aPaterno=?, aMaterno=?, Correo=?, Telefono=? WHERE CodCliente=?";
+    private static final String updateSQL = "UPDATE Cliente SET Nombre=?, aPaterno=?, aMaterno=?, Correo=?, Telefono=?, Status=? WHERE CodCliente=?";
 
 
     public void Insertar(Cliente cliente) {
@@ -34,6 +34,7 @@ public class ClienteDAO {
             ps.setString(4, cliente.getaMaterno());
             ps.setString(5, cliente.getCorreo());
             ps.setString(6, cliente.getTelefono());
+            ps.setBoolean(7, cliente.isStatus());
 
             ps.executeUpdate();
             System.out.println("Registro exitoso!!!");
@@ -57,6 +58,7 @@ public class ClienteDAO {
                 cliente.setaMaterno(rs.getString("aMaterno"));
                 cliente.setCorreo(rs.getString("Correo"));
                 cliente.setTelefono(rs.getString("Telefono"));
+                cliente.setStatus(rs.getBoolean("Status"));
 
                 lista.add(cliente);
                 cliente = new Cliente();
@@ -92,7 +94,8 @@ public class ClienteDAO {
                     rs.getString("aPaterno"),
                     rs.getString("aMaterno"),
                     rs.getString("Correo"),
-                    rs.getString("Telefono"));
+                    rs.getString("Telefono"),
+                    rs.getBoolean("Status"));
             con.close(rs);
             con.close(ps);
         }catch(Exception e) {
@@ -109,12 +112,13 @@ public class ClienteDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
-            ps.setInt(6, cliente.getCodCliente());
+            ps.setInt(7, cliente.getCodCliente());
             ps.setString(1, cliente.getNombre());
             ps.setString(2, cliente.getaPaterno());
             ps.setString(3, cliente.getaMaterno());;
             ps.setString(4, cliente.getCorreo());
             ps.setString(5, cliente.getTelefono());
+            ps.setBoolean(6, cliente.isStatus());
 
 
             registros = ps.executeUpdate();

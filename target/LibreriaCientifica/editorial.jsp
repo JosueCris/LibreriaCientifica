@@ -20,6 +20,12 @@
             <tr>
                 <th>Código de la Editorial: </th>
                 <th>Nombre Editorial: </th>
+                <th>Contacto: </th>
+                <th>Teléfono: </th>
+                <th>Correo: </th>
+                <th>Dirección: </th>
+                <th>Ciudad: </th>
+                <th>País: </th>
             </tr>
             </thead>
             <%

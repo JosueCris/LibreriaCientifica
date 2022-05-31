@@ -18,10 +18,10 @@ public class EditorialDAO {
         this.connection = connection;
     }
 
-    private static final String insertSQL = "INSERT INTO Editorial VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String insertSQL = "INSERT INTO Editorial VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Editorial;";
     private static final String searchSQL = "SELECT * FROM Editorial WHERE CodEditorial = ?;";
-    private static final String updateSQL = "UPDATE Editorial SET Nombre_Editorial=?, Contacto=?, Telefono=?, Correo=?, Direccion=?, Ciudad=?, Pais=? WHERE codEditorial=?";
+    private static final String updateSQL = "UPDATE Editorial SET Nombre_Editorial=?, Contacto=?, Telefono=?, Correo=?, Direccion=?, Ciudad=?, Pais=?, Status=? WHERE codEditorial=?";
 
     public void Insertar(Editorial editorial) {
         try {
@@ -34,6 +34,7 @@ public class EditorialDAO {
             ps.setString(6, editorial.getDireccion());
             ps.setString(7, editorial.getCiudad());
             ps.setString(8, editorial.getPais());
+            ps.setBoolean(9, editorial.isStatus());
 
             ps.executeUpdate();
             System.out.println("Registro exitoso!!!");
@@ -59,6 +60,7 @@ public class EditorialDAO {
                 editorial.setDireccion(rs.getString("Direccion"));
                 editorial.setCiudad(rs.getString("Ciudad"));
                 editorial.setPais(rs.getString("Pais"));
+                editorial.setStatus(rs.getBoolean("Status"));
 
 
                 lista.add(editorial);
@@ -97,7 +99,8 @@ public class EditorialDAO {
                     rs.getString("Correo"),
                     rs.getString("Direccion"),
                     rs.getString("Ciudad"),
-                    rs.getString("Pais"));
+                    rs.getString("Pais"),
+                    rs.getBoolean("Status"));
             con.close(rs);
             con.close(ps);
         }catch(Exception e) {
@@ -114,7 +117,7 @@ public class EditorialDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
-            ps.setInt(8, editorial.getCodEditorial());
+            ps.setInt(9, editorial.getCodEditorial());
             ps.setString(1, editorial.getNombreEditorial());
             ps.setString(2, editorial.getContacto());
             ps.setString(3, editorial.getTelefono());
@@ -122,6 +125,7 @@ public class EditorialDAO {
             ps.setString(5, editorial.getDireccion());
             ps.setString(6, editorial.getCiudad());
             ps.setString(7, editorial.getPais());
+            ps.setBoolean(8, editorial.isStatus());
 
 
             registros = ps.executeUpdate();

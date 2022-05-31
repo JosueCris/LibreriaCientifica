@@ -19,6 +19,7 @@ public class InsertaCliente extends HttpServlet{
     private String aMaterno;
     private String correo;
     private String telefono;
+    private Boolean status;
 
     @Resource(name = "jdbc/database")
     private DataSource conexion;
@@ -31,11 +32,12 @@ public class InsertaCliente extends HttpServlet{
         aMaterno = req.getParameter("aMaterno");
         correo = req.getParameter("correo");
         telefono = req.getParameter("telefono");
+        status = Boolean.valueOf(req.getParameter("status"));
 
         try{
             Connection connection = conexion.getConnection();
             ClienteDAO clienteDAO = new ClienteDAO(connection);
-            Cliente cliente = new Cliente(codCliente, nombre, aPaterno, aMaterno, correo, telefono);
+            Cliente cliente = new Cliente(codCliente, nombre, aPaterno, aMaterno, correo, telefono, status);
             clienteDAO.Insertar(cliente);
             connection.close();
         }

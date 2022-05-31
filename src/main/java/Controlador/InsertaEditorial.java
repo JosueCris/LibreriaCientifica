@@ -1,8 +1,6 @@
 package Controlador;
 
-import Datos.AlmacenDAO;
 import Datos.EditorialDAO;
-import Modelo.Almacen;
 import Modelo.Editorial;
 
 import javax.annotation.Resource;
@@ -21,6 +19,7 @@ public class InsertaEditorial extends HttpServlet {
     private String direccion;
     private String ciudad;
     private String pais;
+    private boolean status;
 
     @Resource(name = "jdbc/database")
     private DataSource conexion;
@@ -35,11 +34,12 @@ public class InsertaEditorial extends HttpServlet {
         direccion = req.getParameter("direccion");
         ciudad = req.getParameter("ciudad");
         pais = req.getParameter("pais");
+        status = Boolean.parseBoolean(req.getParameter("status"));
 
         try{
             Connection connection = conexion.getConnection();
             EditorialDAO editorialDAO = new EditorialDAO(connection);
-            Editorial editorial = new Editorial(codEditorial, nombreEditorial, contacto, telefono, correo, direccion, ciudad, pais);
+            Editorial editorial = new Editorial(codEditorial, nombreEditorial, contacto, telefono, correo, direccion, ciudad, pais, status);
             editorialDAO.Insertar(editorial);
             connection.close();
         }

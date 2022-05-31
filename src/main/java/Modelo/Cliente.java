@@ -9,6 +9,7 @@ public class Cliente implements Serializable {
     private String aMaterno;
     private String correo;
     private String telefono;
+    private boolean status;
 
     public Cliente() {
 
@@ -18,21 +19,23 @@ public class Cliente implements Serializable {
         this.codCliente = codCliente;
     }
 
-    public Cliente(String nombre, String aPaterno, String aMaterno, String correo, String telefono) {
+    public Cliente(String nombre, String aPaterno, String aMaterno, String correo, String telefono, boolean status) {
         this.nombre = nombre;
         this.aPaterno = aPaterno;
         this.aMaterno = aMaterno;
         this.correo = correo;
         this.telefono = telefono;
+        this.status = status;
     }
 
-    public Cliente(int codCliente, String nombre, String aPaterno, String aMaterno, String correo, String telefono) {
+    public Cliente(int codCliente, String nombre, String aPaterno, String aMaterno, String correo, String telefono, boolean status) {
         this.codCliente = codCliente;
         this.nombre = nombre;
         this.aPaterno = aPaterno;
         this.aMaterno = aMaterno;
         this.correo = correo;
         this.telefono = telefono;
+        this.status = status;
     }
 
     public int getCodCliente() {
@@ -81,6 +84,14 @@ public class Cliente implements Serializable {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override

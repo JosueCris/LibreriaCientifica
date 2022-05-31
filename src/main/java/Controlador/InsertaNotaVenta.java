@@ -22,6 +22,7 @@ public class InsertaNotaVenta extends HttpServlet {
     private String tipoPago;
     private int rEmpleado;
     private String fechaCompra;
+    private boolean status;
 
     @Resource(name = "jdbc/database")
     private DataSource conexion;
@@ -35,12 +36,13 @@ public class InsertaNotaVenta extends HttpServlet {
         tipoPago = req.getParameter("tipoPago");
         rEmpleado = Integer.parseInt(req.getParameter("rEmpleado"));
         fechaCompra = req.getParameter("fechaCompra");
+        status = Boolean.parseBoolean(req.getParameter("status"));
 
 
         try{
             Connection connection = conexion.getConnection();
             NotaVentaDAO notaVentaDAO = new NotaVentaDAO(connection);
-            NotaVenta notaVenta = new NotaVenta(codNota, rCliente, rLibro, cantidad, tipoPago, rEmpleado, fechaCompra);
+            NotaVenta notaVenta = new NotaVenta(codNota, rCliente, rLibro, cantidad, tipoPago, rEmpleado, fechaCompra, status);
             notaVentaDAO.Insertar(notaVenta);
             connection.close();
         }

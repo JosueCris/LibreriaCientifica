@@ -36,6 +36,7 @@ Controlador\ServletCliente.class
 Datos\NotaVentaDAO.class
 Modelo\Cliente.class
 Modelo\Cargo.class
+Controlador\SearchAlmacen.class
 Controlador\ServletEstante.class
 Controlador\ServletLibroAlmacen.class
 Controlador\InsertaAutor.class

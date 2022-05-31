@@ -18,9 +18,9 @@ public class EmpleadoDAO {
         this.connection = connection;
     }
 
-    private static final String insertSQL = "INSERT INTO Empleado VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String insertSQL = "INSERT INTO Empleado VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     private static final String selectSQL = "SELECT * FROM Empleado;";
-    private static final String updateSQL = "UPDATE Empleado SET Nombre=?, aPaterno=?, aMaterno=?, Genero=?, Fecha_Nacimiento=?, Fecha_Contratacion=?, Direccion=?, Correo=?, Telefono=?, E_Cargo=? WHERE CodEmpleado=?";
+    private static final String updateSQL = "UPDATE Empleado SET Nombre=?, aPaterno=?, aMaterno=?, Genero=?, Fecha_Nacimiento=?, Fecha_Contratacion=?, Direccion=?, Correo=?, Telefono=?, E_Cargo=?, Status=? WHERE CodEmpleado=?";
     private static final String searchSQL = "SELECT * FROM Empleado WHERE CodEmpleado=?;";
     private static final String deleteSQL = "DELETE FROM Empleado WHERE CodEmpleado=?;";
 
@@ -40,6 +40,7 @@ public class EmpleadoDAO {
             ps.setString(9, empleado.getCorreo());
             ps.setString(10, empleado.getTelefono());
             ps.setInt(11, Integer.parseInt(empleado.geteCargo()));
+            ps.setBoolean(12, empleado.isStatus());
 
             ps.executeUpdate();
             System.out.println("Registro exitoso!!!");
@@ -68,6 +69,7 @@ public class EmpleadoDAO {
                 empleado.setCorreo(rs.getString("Correo"));
                 empleado.setTelefono(rs.getString("Telefono"));
                 empleado.seteCargo(rs.getString("E_Cargo"));
+                empleado.setStatus(rs.getBoolean("Status"));
 
 
                 lista.add(empleado);
@@ -109,7 +111,8 @@ public class EmpleadoDAO {
                     rs.getString("Direccion"),
                     rs.getString("Correo"),
                     rs.getString("Telefono"),
-                    rs.getString("E_Cargo"));
+                    rs.getString("E_Cargo"),
+                    rs.getBoolean("Status"));
             con.close(rs);
             con.close(ps);
         }catch(Exception e) {
@@ -126,7 +129,7 @@ public class EmpleadoDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
-            ps.setInt(11, empleado.getCodEmpleado());
+            ps.setInt(12, empleado.getCodEmpleado());
             ps.setString(1, empleado.getNombre());
             ps.setString(2, empleado.getaPaterno());
             ps.setString(3, empleado.getaMaterno());
@@ -139,6 +142,7 @@ public class EmpleadoDAO {
             ps.setString(8, empleado.getCorreo());
             ps.setString(9, empleado.getTelefono());
             ps.setInt(10, Integer.parseInt(empleado.geteCargo()));
+            ps.setBoolean(11, empleado.isStatus());
 
 
             registros = ps.executeUpdate();

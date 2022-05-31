@@ -10,6 +10,7 @@ public class NotaVenta implements Serializable {
     private String tipoPago;
     private int rEmpleado;
     private String fechaCompra;
+    private boolean status;
 
     public NotaVenta() {
 
@@ -19,16 +20,17 @@ public class NotaVenta implements Serializable {
         this.codNota = codNota;
     }
 
-    public NotaVenta(String rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra) {
+    public NotaVenta(String rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra, boolean status) {
         this.rCliente = rCliente;
         this.rLibro = rLibro;
         this.cantidad = cantidad;
         this.tipoPago = tipoPago;
         this.rEmpleado = rEmpleado;
         this.fechaCompra = fechaCompra;
+        this.status = status;
     }
 
-    public NotaVenta(int codNota, String rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra) {
+    public NotaVenta(int codNota, String rCliente, String rLibro, int cantidad, String tipoPago, int rEmpleado, String fechaCompra, boolean status) {
         this.codNota = codNota;
         this.rCliente = rCliente;
         this.rLibro = rLibro;
@@ -36,6 +38,7 @@ public class NotaVenta implements Serializable {
         this.tipoPago = tipoPago;
         this.rEmpleado = rEmpleado;
         this.fechaCompra = fechaCompra;
+        this.status = status;
     }
 
     public int getCodNota() {
@@ -92,6 +95,14 @@ public class NotaVenta implements Serializable {
 
     public void setFechaCompra(String fechaCompra) {
         this.fechaCompra = fechaCompra;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override

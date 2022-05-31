@@ -14,6 +14,7 @@ public class Empleado implements Serializable {
     private String correo;
     private String telefono;
     private String eCargo;
+    private boolean status;
 
     public Empleado() {
 
@@ -23,7 +24,7 @@ public class Empleado implements Serializable {
         this.codEmpleado = codEmpleado;
     }
 
-    public Empleado(String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, String eCargo) {
+    public Empleado(String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, String eCargo, boolean status) {
         this.nombre = nombre;
         this.aPaterno = aPaterno;
         this.aMaterno = aMaterno;
@@ -34,9 +35,10 @@ public class Empleado implements Serializable {
         this.correo = correo;
         this.telefono = telefono;
         this.eCargo = eCargo;
+        this.status = status;
     }
 
-    public Empleado(int codEmpleado, String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, String eCargo) {
+    public Empleado(int codEmpleado, String nombre, String aPaterno, String aMaterno, String genero, String fechaNacimiento, String fechaContratacion, String direccion, String correo, String telefono, String eCargo, boolean status) {
         this.codEmpleado = codEmpleado;
         this.nombre = nombre;
         this.aPaterno = aPaterno;
@@ -48,6 +50,7 @@ public class Empleado implements Serializable {
         this.correo = correo;
         this.telefono = telefono;
         this.eCargo = eCargo;
+        this.status = status;
     }
 
     public int getCodEmpleado() {
@@ -136,6 +139,14 @@ public class Empleado implements Serializable {
 
     public void seteCargo(String eCargo) {
         this.eCargo = eCargo;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override

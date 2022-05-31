@@ -24,6 +24,7 @@
             <p>Dirección <input type="text" name = "direccion"> </p>
             <p>Ciudad <input type="text" name = "ciudad"> </p>
             <p>País <input type="text" name = "pais"> </p>
+            <p>Status <input type="text" name = "status"> </p>
             <p class="center-content">
                 <input type="submit" value="Ingresar"/>
             </p>

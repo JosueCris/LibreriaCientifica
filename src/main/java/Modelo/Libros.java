@@ -13,6 +13,7 @@ public class Libros implements Serializable {
     private double precio;
     private String sinopsis;
     private int rEstante;
+    private Boolean status;
 
     public Libros() {
 
@@ -22,7 +23,7 @@ public class Libros implements Serializable {
         this.isbn = isbn;
     }
 
-    public Libros(String titulo, int anioEdicion, String rEditorial, String rIdioma, int numeroPaginas, String rMateria, double precio, String sinopsis, int rEstante) {
+    public Libros(String titulo, int anioEdicion, String rEditorial, String rIdioma, int numeroPaginas, String rMateria, double precio, String sinopsis, int rEstante, boolean status) {
         this.titulo = titulo;
         this.anioEdicion = anioEdicion;
         this.rEditorial = rEditorial;
@@ -32,9 +33,10 @@ public class Libros implements Serializable {
         this.precio = precio;
         this.sinopsis = sinopsis;
         this.rEstante = rEstante;
+        this.status = status;
     }
 
-    public Libros(String isbn, String titulo, int anioEdicion, String rEditorial, String rIdioma, int numeroPaginas, String rMateria, double precio, String sinopsis, int rEstante) {
+    public Libros(String isbn, String titulo, int anioEdicion, String rEditorial, String rIdioma, int numeroPaginas, String rMateria, double precio, String sinopsis, int rEstante, boolean status) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.anioEdicion = anioEdicion;
@@ -45,6 +47,7 @@ public class Libros implements Serializable {
         this.precio = precio;
         this.sinopsis = sinopsis;
         this.rEstante = rEstante;
+        this.status = status;
     }
 
     public String getIsbn() {
@@ -125,6 +128,14 @@ public class Libros implements Serializable {
 
     public void setrEstante(int rEstante) {
         this.rEstante = rEstante;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
     @Override

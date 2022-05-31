@@ -23,6 +23,7 @@ public class InsertaLibros extends HttpServlet {
     private double precio;
     private String sinopsis;
     private int rEstante;
+    private boolean status;
 
     @Resource(name = "jdbc/database")
     private DataSource conexion;
@@ -39,11 +40,12 @@ public class InsertaLibros extends HttpServlet {
         precio = Double.parseDouble(req.getParameter("precio"));
         sinopsis = req.getParameter("sinopsis");
         rEstante = Integer.parseInt(req.getParameter("rEstante"));
+        status = Boolean.parseBoolean(req.getParameter("status"));
 
         try{
             Connection connection = conexion.getConnection();
             LibrosDAO librosDAO = new LibrosDAO(connection);
-            Libros libros = new Libros(isbn, titulo, anioEdicion, rEditorial, rIdioma, numeroPaginas, rMateria, precio, sinopsis, rEstante);
+            Libros libros = new Libros(isbn, titulo, anioEdicion, rEditorial, rIdioma, numeroPaginas, rMateria, precio, sinopsis, rEstante, status);
             librosDAO.Insertar(libros);
             connection.close();
         }

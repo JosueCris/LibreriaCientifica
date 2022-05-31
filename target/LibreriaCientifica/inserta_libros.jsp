@@ -26,6 +26,7 @@
             <p>Precio <input type="text" name = "precio"> </p>
             <p>Sinopsis <input type="text" name = "sinopsis"> </p>
             <p>Estante <input type="text" name = "rEstante"> </p>
+            <p>Status <input type="text" name = "status"> </p>
             <p class="center-content">
                 <input type="submit" value="Ingresar"/>
             </p>

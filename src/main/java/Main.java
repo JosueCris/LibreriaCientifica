@@ -77,14 +77,14 @@ public class Main {
 //        idiomaDAO.Actualizar(idioma);
 //        idiomaDAO.Consulta(idioma);
 
-//        LibrosDAO librosDAO = new LibrosDAO(connection);
-//        Libros libros = new Libros();
+        LibrosDAO librosDAO = new LibrosDAO(connection);
+        Libros libros = new Libros();
 //        librosDAO.getLibros("978-84-9838-677-6");
 //        Libros libros = new Libros("152-888-93hf", "Harry Potter y el prisionero de Azkaban", 2003, "7", "2", 361, "2", 289, "Harry conoce a su padrino y salvan a un hipogrifo", 11);
 //        Libros libros = new Libros();
 //        librosDAO.Insertar(libros);
 //        librosDAO.actualizar(libros));
-//        librosDAO.Consulta(libros); // Compruebo que la consulta de todos los libros funciona bien
+        librosDAO.Consulta(libros); // Compruebo que la consulta de todos los libros funciona bien
 
 
 

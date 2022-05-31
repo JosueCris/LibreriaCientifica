@@ -18,8 +18,8 @@ public class NotaVentaDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Nota_Venta " +
-            "VALUES (?, ?, ?, ?, ?, ?, ?);";
-    private static final String selectSQL = "SELECT Nota_Venta.CodNota, Cliente.Nombre AS Cliente, Libros.Titulo AS Libro, Nota_Venta.Cantidad, Nota_Venta.Tipo_Pago, Empleado.CodEmpleado, Nota_Venta.Fecha_Compra " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String selectSQL = "SELECT Nota_Venta.CodNota, Cliente.Nombre AS Cliente, Libros.Titulo AS Libro, Nota_Venta.Cantidad, Nota_Venta.Tipo_Pago, Empleado.CodEmpleado, Nota_Venta.Fecha_Compra, Nota_Venta.Status " +
                                             "FROM Nota_Venta " +
                                             "JOIN Cliente " +
                                             "ON Nota_Venta.R_Cliente = Cliente.CodCliente " +
@@ -27,7 +27,7 @@ public class NotaVentaDAO {
                                             "ON Nota_Venta.R_Libro = Libros.ISBN " +
                                             "JOIN Empleado " +
                                             "ON Nota_Venta.R_Empleado = Empleado.CodEmpleado;";
-    private static final String searchSQL = "SELECT Nota_Venta.CodNota, Cliente.Nombre AS Cliente, Libros.Titulo AS Libro, Nota_Venta.Cantidad, Nota_Venta.Tipo_Pago, Empleado.CodEmpleado, Nota_Venta.Fecha_Compra " +
+    private static final String searchSQL = "SELECT Nota_Venta.CodNota, Cliente.Nombre AS Cliente, Libros.Titulo AS Libro, Nota_Venta.Cantidad, Nota_Venta.Tipo_Pago, Empleado.CodEmpleado, Nota_Venta.Fecha_Compra, Nota_Venta.Status " +
                                             "FROM Nota_Venta " +
                                             "JOIN Cliente " +
                                             "ON Nota_Venta.R_Cliente = Cliente.CodCliente " +
@@ -37,7 +37,7 @@ public class NotaVentaDAO {
                                             "ON Nota_Venta.R_Empleado = Empleado.CodEmpleado " +
                                             "WHERE CodNota=?;";
     private static final String updateSQL = "UPDATE Nota_Venta " +
-                                            "SET R_Cliente=?, R_Libro=?, Cantidad=?, Tipo_Pago=?, R_Empleado=?, Fecha_Compra=? " +
+                                            "SET R_Cliente=?, R_Libro=?, Cantidad=?, Tipo_Pago=?, R_Empleado=?, Fecha_Compra=?, Status=? " +
                                             "WHERE CodNota=?;";
 
     public void Insertar(NotaVenta notaVenta) {
@@ -50,6 +50,7 @@ public class NotaVentaDAO {
             ps.setString(5, notaVenta.getTipoPago());
             ps.setInt(6, notaVenta.getrEmpleado());
             ps.setDate(7, java.sql.Date.valueOf(notaVenta.getFechaCompra()));
+            ps.setBoolean(8, notaVenta.isStatus());
 
 
             ps.executeUpdate();
@@ -75,6 +76,7 @@ public class NotaVentaDAO {
                 notaVenta.setTipoPago(rs.getString("Tipo_Pago"));
                 notaVenta.setrEmpleado(rs.getInt("CodEmpleado"));
                 notaVenta.setFechaCompra(rs.getString("Fecha_Compra"));
+                notaVenta.setStatus(rs.getBoolean("Status"));
 
                 lista.add(notaVenta);
                 notaVenta = new NotaVenta();
@@ -111,7 +113,8 @@ public class NotaVentaDAO {
                     rs.getInt("Cantidad"),
                     rs.getString("Tipo_Pago"),
                     rs.getInt("CodEmpleado"),
-                    rs.getString("Fecha_Compra"));
+                    rs.getString("Fecha_Compra"),
+                    rs.getBoolean("Status"));
             con.close(rs);
             con.close(ps);
         }catch(Exception e) {
@@ -128,13 +131,14 @@ public class NotaVentaDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
-            ps.setInt(7, notaVenta.getCodNota());
+            ps.setInt(8, notaVenta.getCodNota());
             ps.setInt(1, Integer.parseInt(notaVenta.getrCliente()));
             ps.setInt(2, Integer.parseInt(notaVenta.getrLibro()));
             ps.setInt(3, notaVenta.getCantidad());
             ps.setString(4, notaVenta.getTipoPago());
             ps.setInt(5, notaVenta.getrEmpleado());
             ps.setDate(6, java.sql.Date.valueOf(notaVenta.getFechaCompra()));
+            ps.setBoolean(7, notaVenta.isStatus());
 
 
 //            ps.setInt(2, Integer.parseInt(notaVenta.getrCliente()));

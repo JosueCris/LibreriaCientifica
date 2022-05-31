@@ -27,6 +27,7 @@
             <p>Correo <input type="text" name = "correo"> </p>
             <p>Teléfono <input type="text" name = "telefono"> </p>
             <p>Cargo <input type="text" name = "eCargo"> </p>
+            <p>Status <input type="text" name = "status"> </p>
             <p class="center-content">
                 <input type="submit" value="Ingresar"/>
             </p>

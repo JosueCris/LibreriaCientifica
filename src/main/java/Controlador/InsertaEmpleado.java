@@ -26,6 +26,7 @@ public class InsertaEmpleado extends HttpServlet {
     private String correo;
     private String telefono;
     private String eCargo;
+    private boolean status;
 
     @Resource(name = "jdbc/database")
     private DataSource conexion;
@@ -43,11 +44,12 @@ public class InsertaEmpleado extends HttpServlet {
         correo = req.getParameter("correo");
         telefono = req.getParameter("telefono");
         eCargo = req.getParameter("eCargo");
+        status = Boolean.parseBoolean(req.getParameter("status"));
 
         try{
             Connection connection = conexion.getConnection();
             EmpleadoDAO empleadoDAO = new EmpleadoDAO(connection);
-            Empleado empleado = new Empleado(nombre, aPaterno, aMaterno, genero, fechaNacimiento, fechaContratacion, direccion, correo, telefono, eCargo);
+            Empleado empleado = new Empleado(nombre, aPaterno, aMaterno, genero, fechaNacimiento, fechaContratacion, direccion, correo, telefono, eCargo, status);
             empleadoDAO.Insertar(empleado);
             connection.close();
         }

@@ -23,6 +23,7 @@
             <p>Tipo de Pago <input type="text" name = "tipoPago"> </p>
             <p>Empleado <input type="text" name = "rEmpleado"> </p>
             <p>Fecha de Compra <input type="text" name = "fechaCompra"> </p>
+            <p>Status <input type="text" name = "status"> </p>
             <p class="center-content">
                 <input type="submit" value="Ingresar"/>
             </p>

@@ -20,8 +20,8 @@ public class LibrosDAO {
 
 // Esto lo tengo pendiente en lo que resuelvo mi conflicto con la incongruencia entre la BD y los constructores
     private static final String insertSQL = "INSERT INTO Libros " +
-                                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-    private static final String selectSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante" +
+                                            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    private static final String selectSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante, Libros.Status" +
                                             " FROM Libros" +
                                             " JOIN Editorial" +
                                             " ON Libros.R_Editorial = Editorial.CodEditorial" +
@@ -32,7 +32,7 @@ public class LibrosDAO {
                                             " JOIN Estante" +
                                             " ON Libros.R_Estante = Estante.CodEstante;";
     private static final String updateSQL = "UPDATE Libros " +
-                                            "SET Titulo=?, Año_Edicion=?, R_Editorial=?,R_Idioma=?, Numero_Paginas=?, R_Materia=?, Precio=?, Sinopsis=?, R_Estante=? WHERE ISBN=?";
+                                            "SET Titulo=?, Año_Edicion=?, R_Editorial=?,R_Idioma=?, Numero_Paginas=?, R_Materia=?, Precio=?, Sinopsis=?, R_Estante=?, Status=? WHERE ISBN=?";
     private static final String searchSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante" +
                                             " FROM Libros" +
                                             " JOIN Editorial" +
@@ -60,6 +60,7 @@ public class LibrosDAO {
             ps.setDouble(8, libros.getPrecio());
             ps.setString(9, libros.getSinopsis());
             ps.setInt(10, libros.getrEstante());
+            ps.setBoolean(11, libros.getStatus());
 
             ps.executeUpdate();
             System.out.println("Registro exitoso!!!");
@@ -87,6 +88,7 @@ public class LibrosDAO {
                 libros.setPrecio(rs.getDouble("Precio"));
                 libros.setSinopsis(rs.getString("Sinopsis"));
                 libros.setrEstante(rs.getInt("Estante"));
+                libros.setStatus(rs.getBoolean("Status"));
 
                 lista.add(libros);
                 libros = new Libros();
@@ -126,7 +128,8 @@ public class LibrosDAO {
                     rs.getString("Materia"),
                     rs.getDouble("Precio"),
                     rs.getString("Sinopsis"),
-                    rs.getInt("Estante"));
+                    rs.getInt("Estante"),
+                    rs.getBoolean("Status"));
             con.close(rs);
             con.close(ps);
         }catch(Exception e) {
@@ -143,15 +146,17 @@ public class LibrosDAO {
         try {
             connection = con.getConnection();
             ps = connection.prepareStatement(updateSQL);
-            ps.setString(9, libros.getIsbn());
+            ps.setString(11, libros.getIsbn());
             ps.setString(1, libros.getTitulo());
             ps.setInt(2, libros.getAnioEdicion());
             ps.setString(3, libros.getrEditorial());
             ps.setString(4, libros.getrIdioma());
             ps.setInt(5, libros.getNumeroPaginas());
             ps.setString(6, libros.getrMateria());
-            ps.setString(7, libros.getSinopsis());
-            ps.setInt(8, libros.getrEstante());
+            ps.setDouble(7, libros.getPrecio());
+            ps.setString(8, libros.getSinopsis());
+            ps.setInt(9, libros.getrEstante());
+            ps.setBoolean(10, libros.getStatus());
 
             registros = ps.executeUpdate();
             if (registros > 0)

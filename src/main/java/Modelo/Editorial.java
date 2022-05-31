@@ -11,6 +11,7 @@ public class Editorial implements Serializable {
     private String direccion;
     private String ciudad;
     private String pais;
+    private boolean status;
 
     public Editorial() {
 
@@ -20,7 +21,7 @@ public class Editorial implements Serializable {
         this.codEditorial = codEditorial;
     }
 
-    public Editorial(String nombreEditorial, String contacto, String telefono, String correo, String direccion, String ciudad, String pais) {
+    public Editorial(String nombreEditorial, String contacto, String telefono, String correo, String direccion, String ciudad, String pais, boolean status) {
         this.nombreEditorial = nombreEditorial;
         this.contacto = contacto;
         this.telefono = telefono;
@@ -28,9 +29,10 @@ public class Editorial implements Serializable {
         this.direccion = direccion;
         this.ciudad = ciudad;
         this.pais = pais;
+        this.status = status;
     }
 
-    public Editorial(int codEditorial, String nombreEditorial, String contacto, String telefono, String correo, String direccion, String ciudad, String pais) {
+    public Editorial(int codEditorial, String nombreEditorial, String contacto, String telefono, String correo, String direccion, String ciudad, String pais, boolean status) {
         this.codEditorial = codEditorial;
         this.nombreEditorial = nombreEditorial;
         this.contacto = contacto;
@@ -39,6 +41,7 @@ public class Editorial implements Serializable {
         this.direccion = direccion;
         this.ciudad = ciudad;
         this.pais = pais;
+        this.status = status;
     }
 
     public int getCodEditorial() {
@@ -103,6 +106,14 @@ public class Editorial implements Serializable {
 
     public void setPais(String pais) {
         this.pais = pais;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     @Override
