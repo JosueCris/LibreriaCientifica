@@ -11,8 +11,8 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertaCargo", urlPatterns = {"/InsertaCargo"})
-public class InsertaCargo extends HttpServlet {
+@WebServlet(name = "UpdateCargo", urlPatterns = {"/UpdateCargo"})
+public class UpdateCargo extends HttpServlet {
     private int codCargo;
     private String nombreCargo;
 
@@ -28,13 +28,13 @@ public class InsertaCargo extends HttpServlet {
             Connection connection = conexion.getConnection();
             CargoDAO cargoDAO = new CargoDAO(connection);
             Cargo cargo = new Cargo(codCargo, nombreCargo);
-            cargoDAO.Insertar(cargo);
+            cargoDAO.Actualizar(cargo);
             connection.close();
         }
         catch (Exception e){
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/LibreriaCientifica/inserta_cargo.jsp");
+        resp.sendRedirect("/LibreriaCientifica/update_cargo.jsp");
     }
 }

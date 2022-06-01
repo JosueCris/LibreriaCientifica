@@ -1,8 +1,6 @@
 package Controlador;
 
-import Datos.IdiomaDAO;
 import Datos.MateriaDAO;
-import Modelo.Idioma;
 import Modelo.Materia;
 
 import javax.annotation.Resource;

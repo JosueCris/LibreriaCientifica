@@ -111,6 +111,62 @@
 
 
 
+    <servlet>
+        <servlet-name>UpdateAlmacen</servlet-name>
+        <servlet-class>Controlador.UpdateAlmacen</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateAutor</servlet-name>
+        <servlet-class>Controlador.UpdateAutor</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateCargo</servlet-name>
+        <servlet-class>Controlador.UpdateCargo</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateCliente</servlet-name>
+        <servlet-class>Controlador.UpdateCliente</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateEditorial</servlet-name>
+        <servlet-class>Controlador.UpdateEditorial</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateEmpleado</servlet-name>
+        <servlet-class>Controlador.UpdateEmpleado</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateEstante</servlet-name>
+        <servlet-class>Controlador.UpdateEstante</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateIdioma</servlet-name>
+        <servlet-class>Controlador.UpdateIdioma</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateLibros</servlet-name>
+        <servlet-class>Controlador.UpdateLibros</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateMateria</servlet-name>
+        <servlet-class>Controlador.UpdateMateria</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>UpdateNotaVenta</servlet-name>
+        <servlet-class>Controlador.UpdateNotaVenta</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>ServletAlmacen</servlet-name>
         <url-pattern>/ServletAlmacen</url-pattern>
@@ -212,4 +268,66 @@
         <servlet-name>ServletNotaVenta</servlet-name>
         <url-pattern>/ServletNotaVenta</url-pattern>
     </servlet-mapping>
+
+
+
+    <servlet-mapping>
+        <servlet-name>UpdateAlmacen</servlet-name>
+        <url-pattern>/UpdateAlmacen</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateAutor</servlet-name>
+        <url-pattern>/UpdateAutor</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateCargo</servlet-name>
+        <url-pattern>/UpdateCargo</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateCliente</servlet-name>
+        <url-pattern>/UpdateCliente</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateEditorial</servlet-name>
+        <url-pattern>/UpdateEditorial</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateEmpleado</servlet-name>
+        <url-pattern>/UpdateEmpleado</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateEstante</servlet-name>
+        <url-pattern>/UpdateEstante</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateIdioma</servlet-name>
+        <url-pattern>/UpdateIdioma</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateLibros</servlet-name>
+        <url-pattern>/UpdateLibros</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateMateria</servlet-name>
+        <url-pattern>/UpdateMateria</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>UpdateNotaVenta</servlet-name>
+        <url-pattern>/UpdateNotaVenta</url-pattern>
+    </servlet-mapping>
+
 </web-app>
+
+
+
+

@@ -1,7 +1,7 @@
 package Controlador;
 
-import Datos.CargoDAO;
-import Modelo.Cargo;
+import Datos.AutorDAO;
+import Modelo.Autor;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -11,30 +11,30 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertaCargo", urlPatterns = {"/InsertaCargo"})
-public class InsertaCargo extends HttpServlet {
-    private int codCargo;
-    private String nombreCargo;
+@WebServlet(name = "UpdateAutor", urlPatterns = {"/UpdateAutor"})
+public class UpdateAutor extends HttpServlet {
+    private int codAutor;
+    private String nombreCompleto;
 
     @Resource(name = "jdbc/database")
     private DataSource conexion;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        codCargo = Integer.parseInt(req.getParameter("codCargo"));  // No me actualiza Caro, el error anda por acá
-        nombreCargo = req.getParameter("nombreCargo");
+        codAutor = Integer.parseInt(req.getParameter("codAutor"));
+        nombreCompleto = req.getParameter("nombreCompleto");
 
         try{
             Connection connection = conexion.getConnection();
-            CargoDAO cargoDAO = new CargoDAO(connection);
-            Cargo cargo = new Cargo(codCargo, nombreCargo);
-            cargoDAO.Insertar(cargo);
+            AutorDAO autorDAO = new AutorDAO(connection);
+            Autor autor = new Autor(codAutor, nombreCompleto);
+            autorDAO.Actualizar(autor);
             connection.close();
         }
         catch (Exception e){
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/LibreriaCientifica/inserta_cargo.jsp");
+        resp.sendRedirect("/LibreriaCientifica/update_autor.jsp");
     }
 }

@@ -1,7 +1,7 @@
 package Controlador;
 
-import Datos.EstanteDAO;
-import Modelo.Estante;
+import Datos.AlmacenDAO;
+import Modelo.Almacen;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -11,32 +11,32 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertaEstante", urlPatterns = {"/InsertaEstante"})
-public class InsertaEstante extends HttpServlet {
-    private int codEstante;
+@WebServlet(name = "UpdateAlmacen", urlPatterns = {"/UpdateAlmacen"})
+public class UpdateAlmacen extends HttpServlet {
+    private int codRepisa;
     private int numeroEjemplares;
-    private int pasillo;
+    private int pasillosA;
 
     @Resource(name = "jdbc/database")
     private DataSource conexion;
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        codEstante = Integer.parseInt(req.getParameter("codEstante"));
+        codRepisa = Integer.parseInt(req.getParameter("codRepisa"));
         numeroEjemplares = Integer.parseInt(req.getParameter("numeroEjemplares"));
-        pasillo = Integer.parseInt(req.getParameter("pasillo"));
+        pasillosA = Integer.parseInt(req.getParameter("pasillosA"));
 
         try{
             Connection connection = conexion.getConnection();
-            EstanteDAO estanteDAO = new EstanteDAO(connection);
-            Estante estante = new Estante(codEstante, numeroEjemplares, pasillo);
-            estanteDAO.Insertar(estante);
+            AlmacenDAO almacenDAO = new AlmacenDAO(connection);
+            Almacen almacen = new Almacen(codRepisa, numeroEjemplares, pasillosA);
+            almacenDAO.Actualizar(almacen);
             connection.close();
         }
         catch (Exception e){
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/LibreriaCientifica/inserta_estante.jsp");
+        resp.sendRedirect("/LibreriaCientifica/update_almacen.jsp");
     }
 }

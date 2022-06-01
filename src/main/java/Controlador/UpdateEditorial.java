@@ -6,13 +6,15 @@ import Modelo.Editorial;
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertaEditorial", urlPatterns = {"/InsertaEditorial"})
-public class InsertaEditorial extends HttpServlet {
+@WebServlet(name = "UpdateEditorial", urlPatterns = {"/UpdateEditorial"})
+public class UpdateEditorial extends HttpServlet {
     private int codEditorial;
     private String nombreEditorial;
     private String contacto;
@@ -42,13 +44,13 @@ public class InsertaEditorial extends HttpServlet {
             Connection connection = conexion.getConnection();
             EditorialDAO editorialDAO = new EditorialDAO(connection);
             Editorial editorial = new Editorial(codEditorial, nombreEditorial, contacto, telefono, correo, direccion, ciudad, pais, status);
-            editorialDAO.Insertar(editorial);
+            editorialDAO.Actualizar(editorial);
             connection.close();
         }
         catch (Exception e){
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/LibreriaCientifica/inserta_editorial.jsp");
+        resp.sendRedirect("/LibreriaCientifica/update_editorial.jsp");
     }
 }

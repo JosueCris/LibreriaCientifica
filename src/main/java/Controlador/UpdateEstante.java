@@ -11,8 +11,8 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertaEstante", urlPatterns = {"/InsertaEstante"})
-public class InsertaEstante extends HttpServlet {
+@WebServlet(name = "UpdateEstante", urlPatterns = {"/UpdateEstante"})
+public class UpdateEstante extends HttpServlet {
     private int codEstante;
     private int numeroEjemplares;
     private int pasillo;
@@ -30,13 +30,13 @@ public class InsertaEstante extends HttpServlet {
             Connection connection = conexion.getConnection();
             EstanteDAO estanteDAO = new EstanteDAO(connection);
             Estante estante = new Estante(codEstante, numeroEjemplares, pasillo);
-            estanteDAO.Insertar(estante);
+            estanteDAO.Actualizar(estante);
             connection.close();
         }
         catch (Exception e){
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/LibreriaCientifica/inserta_estante.jsp");
+        resp.sendRedirect("/LibreriaCientifica/update_estante.jsp");
     }
 }

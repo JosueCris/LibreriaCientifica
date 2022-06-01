@@ -1,4 +1,3 @@
-import Controlador.ServletAutor;
 import Datos.*;
 import Modelo.*;
 
@@ -29,7 +28,7 @@ public class Main {
 //        Cargo cargo = new Cargo();
 //        cargoDAO.getCargo(8);
 //        Cargo cargo = new Cargo(8, "Ingeniero");
-//        //cargoDAO.Insertar(cargo);
+        //cargoDAO.Insertar(cargo);
 //        cargoDAO.Actualizar(cargo);
 //        cargoDAO.Consulta(cargo);
 
@@ -52,7 +51,7 @@ public class Main {
 //        EmpleadoDAO empleadoDAO = new EmpleadoDAO(connection);
 //        Empleado empleado = new Empleado();
 //        empleadoDAO.getEmpleado(14);
-//        Empleado empleado = new Empleado(6, "Rosa", "Pedro", "Luis", "Femenino", "2000-09-21", "2020-06-26", "Lomas 4", "rosapelu@gmail.com", "2291093618","5");
+//        Empleado empleado = new Empleado(6, "Rosa", "Pedro", "Luis", "Femenino", "2000-09-21", "2020-06-26", "Lomas 4", "rosapelu@gmail.com", "2291093618","5", true);
 //        empleadoDAO.Actualizar(empleado);
 //        Empleado empleado = empleadoDAO.getEmpleado(7);
 //        empleadoDAO.Consulta(empleado);
@@ -77,14 +76,14 @@ public class Main {
 //        idiomaDAO.Actualizar(idioma);
 //        idiomaDAO.Consulta(idioma);
 
-        LibrosDAO librosDAO = new LibrosDAO(connection);
-        Libros libros = new Libros();
+//        LibrosDAO librosDAO = new LibrosDAO(connection);
+//        Libros libros = new Libros();
 //        librosDAO.getLibros("978-84-9838-677-6");
 //        Libros libros = new Libros("152-888-93hf", "Harry Potter y el prisionero de Azkaban", 2003, "7", "2", 361, "2", 289, "Harry conoce a su padrino y salvan a un hipogrifo", 11);
 //        Libros libros = new Libros();
 //        librosDAO.Insertar(libros);
 //        librosDAO.actualizar(libros));
-        librosDAO.Consulta(libros); // Compruebo que la consulta de todos los libros funciona bien
+//        librosDAO.Consulta(libros); // Compruebo que la consulta de todos los libros funciona bien
 
 
 

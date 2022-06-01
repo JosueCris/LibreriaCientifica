@@ -15,6 +15,7 @@
             <li><font face="times new roman" size="5px"><a href="cliente.jsp">Lista de Clientes</a></font></li>
             <li><font face="times new roman" size="5px"><a href="editorial.jsp">Lista de Editoriales</a></font></li>
             <li><font face="times new roman" size="5px"><a href="empleado.jsp">Lista de Empleados</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="estante.jsp">Lista de Estantes</a></font></li>
             <li><font face="times new roman" size="5px"><a href="idioma.jsp">Lista de Idiomas</a></font></li>
             <li><font face="times new roman" size="5px"><a href="libros.jsp">Lista de Libros</a></font></li>
             <li><font face="times new roman" size="5px"><a href="materia.jsp">Lista de Materias</a></font></li>
@@ -32,7 +33,17 @@
             <li><font face="times new roman" size="5px"><a href="inserta_materia.jsp">Inserta Materia</a></font></li>
             <li><font face="times new roman" size="5px"><a href="inserta_notaventa.jsp">Inserta Nota</a></font></li>
 
-
+            <li><font face="times new roman" size="5px"><a href="update_almacen.jsp">Actualiza Almacen</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_autor.jsp">Actualiza Autor</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_cargo.jsp">Actualiza Cargo</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_cliente.jsp">Actualiza Cliente</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_editorial.jsp">Actualiza Editorial</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_empleado.jsp">Actualiza Empleado</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_estante.jsp">Actualiza Estante</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_idioma.jsp">Actualiza Idioma</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_libros.jsp">Actualiza Libros</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_materia.jsp">Actualiza Materia</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="update_notaventa.jsp">Actualiza Nota</a></font></li>
 
         </div>
 

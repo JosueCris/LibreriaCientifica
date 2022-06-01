@@ -11,8 +11,8 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 
-@WebServlet(name = "InsertaNotaVenta", urlPatterns = {"/InsertaNotaVenta"})
-public class InsertaNotaVenta extends HttpServlet {
+@WebServlet(name = "UpdateNotaVenta", urlPatterns = {"/UpdateNotaVenta"})
+public class UpdateNotaVenta extends HttpServlet {
     private int codNota;
     private String rCliente;
     private String rLibro;
@@ -41,13 +41,13 @@ public class InsertaNotaVenta extends HttpServlet {
             Connection connection = conexion.getConnection();
             NotaVentaDAO notaVentaDAO = new NotaVentaDAO(connection);
             NotaVenta notaVenta = new NotaVenta(codNota, rCliente, rLibro, cantidad, tipoPago, rEmpleado, fechaCompra, status);
-            notaVentaDAO.Insertar(notaVenta);
+            notaVentaDAO.Actualizar(notaVenta);
             connection.close();
         }
         catch (Exception e){
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/LibreriaCientifica/inserta_notaventa.jsp");
+        resp.sendRedirect("/LibreriaCientifica/update_notaventa.jsp");
     }
 }
