@@ -1,7 +1,9 @@
 package Datos;
 
+import Modelo.Almacen;
 import Modelo.Autor;
 import Modelo.Cliente;
+import Modelo.Empleado;
 
 import java.sql.*;
 import java.util.*;
@@ -20,9 +22,10 @@ public class ClienteDAO {
 
     private static final String insertSQL = "INSERT INTO Cliente " +
             "VALUES (?, ?, ?, ?, ?, ?, ?);";
-    private static final String selectSQL = "SELECT * FROM CLiente;";
+    private static final String selectSQL = "SELECT * FROM CLiente WHERE Status='true' ORDER BY CodCliente;";
     private static final String searchSQL = "SELECT * FROM Cliente WHERE CodCliente = ?;";
     private static final String updateSQL = "UPDATE Cliente SET Nombre=?, aPaterno=?, aMaterno=?, Correo=?, Telefono=?, Status=? WHERE CodCliente=?";
+    private static final String deleteSQL = "UPDATE Cliente SET Status = false WHERE CodCliente=?;";
 
 
     public void Insertar(Cliente cliente) {
@@ -133,5 +136,23 @@ public class ClienteDAO {
         }
 
         return registros;
+    }
+
+    public Cliente Eliminar (int codCliente) {
+        Cliente cliente = getCliente(codCliente);
+        if (cliente == null)
+            return null;
+        try {
+            ps = connection.prepareStatement (deleteSQL);
+            ps.setInt(1, codCliente);
+            ps.executeUpdate();
+
+            System.out.println("Registro Eliminado!!!");
+            con.close(ps);
+            con.close(connection);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cliente;
     }
 }

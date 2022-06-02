@@ -31,6 +31,7 @@ public class UpdateEmpleado extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(req.getParameter("codEmpleado"));
         codEmpleado = Integer.parseInt(req.getParameter("codEmpleado"));
         nombre = req.getParameter("nombre");
         aPaterno = req.getParameter("aPaterno");
@@ -47,7 +48,7 @@ public class UpdateEmpleado extends HttpServlet {
         try{
             Connection connection = conexion.getConnection();
             EmpleadoDAO empleadoDAO = new EmpleadoDAO(connection);
-            Empleado empleado = new Empleado(nombre, aPaterno, aMaterno, genero, fechaNacimiento, fechaContratacion, direccion, correo, telefono, eCargo, status);
+            Empleado empleado = new Empleado(codEmpleado, nombre, aPaterno, aMaterno, genero, fechaNacimiento, fechaContratacion, direccion, correo, telefono, eCargo, status);
             empleadoDAO.Actualizar(empleado);
             connection.close();
         }

@@ -18,7 +18,7 @@ public class MateriaDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Materia VALUES (?, ?);";
-    private static final String selectSQL = "SELECT * FROM Materia;";
+    private static final String selectSQL = "SELECT * FROM Materia ORDER BY CodMateria;";
     private static final String searchSQL = "SELECT * FROM Materia WHERE CodMateria = ?;";
     private static final String updateSQL = "UPDATE Materia SET Nombre_Materia=? WHERE CodMateria=?";
 

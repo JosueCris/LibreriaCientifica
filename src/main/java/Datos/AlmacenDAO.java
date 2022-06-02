@@ -18,11 +18,9 @@ public class AlmacenDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Almacen VALUES (?, ?, ?);";
-    private static final String selectSQL = "SELECT * FROM Almacen;";
+    private static final String selectSQL = "SELECT * FROM Almacen ORDER BY CodRepisa;";
     private static final String searchSQL = "SELECT * FROM Almacen WHERE CodRepisa = ?;";
-    private static final String updateSQL =" UPDATE Almacen SET Numero_Ejemplares=?, PasillosA=? WHERE CodRepisa=?";
-
-
+    private static final String updateSQL = "UPDATE Almacen SET Numero_Ejemplares=?, PasillosA=? WHERE CodRepisa=?";
 
     public void Insertar(Almacen almacen) {
         try {

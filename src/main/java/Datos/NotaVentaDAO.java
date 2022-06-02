@@ -1,5 +1,6 @@
 package Datos;
 
+import Modelo.Empleado;
 import Modelo.NotaVenta;
 
 import java.sql.*;
@@ -26,7 +27,9 @@ public class NotaVentaDAO {
                                             "JOIN Libros " +
                                             "ON Nota_Venta.R_Libro = Libros.ISBN " +
                                             "JOIN Empleado " +
-                                            "ON Nota_Venta.R_Empleado = Empleado.CodEmpleado;";
+                                            "ON Nota_Venta.R_Empleado = Empleado.CodEmpleado " +
+                                            "WHERE Nota_Venta.Status='true'" +
+                                            "ORDER BY Nota_Venta.CodNota;";
     private static final String searchSQL = "SELECT Nota_Venta.CodNota, Cliente.Nombre AS Cliente, Libros.Titulo AS Libro, Nota_Venta.Cantidad, Nota_Venta.Tipo_Pago, Empleado.CodEmpleado, Nota_Venta.Fecha_Compra, Nota_Venta.Status " +
                                             "FROM Nota_Venta " +
                                             "JOIN Cliente " +
@@ -39,6 +42,7 @@ public class NotaVentaDAO {
     private static final String updateSQL = "UPDATE Nota_Venta " +
                                             "SET R_Cliente=?, R_Libro=?, Cantidad=?, Tipo_Pago=?, R_Empleado=?, Fecha_Compra=?, Status=? " +
                                             "WHERE CodNota=?;";
+    private static final String deleteSQL = "UPDATE Nota_Venta SET Status = false WHERE CodNota=?;";
 
     public void Insertar(NotaVenta notaVenta) {
         try {
@@ -51,7 +55,6 @@ public class NotaVentaDAO {
             ps.setInt(6, notaVenta.getrEmpleado());
             ps.setDate(7, java.sql.Date.valueOf(notaVenta.getFechaCompra()));
             ps.setBoolean(8, notaVenta.isStatus());
-
 
             ps.executeUpdate();
             System.out.println("Registro exitoso!!!");
@@ -140,15 +143,6 @@ public class NotaVentaDAO {
             ps.setDate(6, java.sql.Date.valueOf(notaVenta.getFechaCompra()));
             ps.setBoolean(7, notaVenta.isStatus());
 
-
-//            ps.setInt(2, Integer.parseInt(notaVenta.getrCliente()));
-//            ps.setInt(3, Integer.parseInt(notaVenta.getrLibro()));
-//            ps.setInt(4, notaVenta.getCantidad());
-//            ps.setString(5, notaVenta.getTipoPago());
-//            ps.setInt(6, notaVenta.getrEmpleado());
-//            ps.setDate(7, java.sql.Date.valueOf(notaVenta.getFechaCompra()));
-
-
             registros = ps.executeUpdate();
             if (registros > 0)
                 System.out.println("Registro Actualizado!!!");
@@ -159,7 +153,24 @@ public class NotaVentaDAO {
         }catch (Exception e) {
             e.printStackTrace();
         }
-
         return registros;
+    }
+
+    public NotaVenta Eliminar (int codNota) {
+        NotaVenta notaVenta = getNotaVenta(codNota);
+        if (notaVenta == null)
+            return null;
+        try {
+            ps = connection.prepareStatement (deleteSQL);
+            ps.setInt(1, codNota);
+            ps.executeUpdate();
+
+            System.out.println("Registro Eliminado!!!");
+            con.close(ps);
+            con.close(connection);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return notaVenta;
     }
 }

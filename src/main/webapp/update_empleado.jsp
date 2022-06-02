@@ -10,7 +10,7 @@
 <%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
 <html>
 <head>
-    <title>Inserta Empleado</title>
+    <title>Actualiza Empleado</title>
 </head>
 <body background="fondo.jpg">
 <main class="main">

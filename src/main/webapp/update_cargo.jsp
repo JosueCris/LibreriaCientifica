@@ -16,7 +16,7 @@
 <main class="main">
     <div class="container">
         <form method="post" action="/LibreriaCientifica/UpdateCargo">
-            <p>Código Cargo <input type="text" name = "codAutor"> </p>
+            <p>Código Cargo <input type="text" name = "codCargo"> </p>
             <p>Nombre Cargo <input type="text" name = "nombreCargo"> </p>
             <p class="center-content">
                 <input type="submit" value="Actualizar"/>

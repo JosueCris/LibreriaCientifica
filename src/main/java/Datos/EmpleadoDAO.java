@@ -1,6 +1,5 @@
 package Datos;
 
-import Modelo.Editorial;
 import Modelo.Empleado;
 
 import java.sql.*;
@@ -19,10 +18,11 @@ public class EmpleadoDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Empleado VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-    private static final String selectSQL = "SELECT * FROM Empleado;";
+    private static final String selectSQL = "SELECT * FROM Empleado WHERE Status='true' ORDER BY CodEmpleado;";
     private static final String updateSQL = "UPDATE Empleado SET Nombre=?, aPaterno=?, aMaterno=?, Genero=?, Fecha_Nacimiento=?, Fecha_Contratacion=?, Direccion=?, Correo=?, Telefono=?, E_Cargo=?, Status=? WHERE CodEmpleado=?";
     private static final String searchSQL = "SELECT * FROM Empleado WHERE CodEmpleado=?;";
-    private static final String deleteSQL = "DELETE FROM Empleado WHERE CodEmpleado=?;";
+    private static final String deleteSQL = "UPDATE Empleado SET Status = false WHERE CodEmpleado=?;";
+//    private static final String deleteSQL = "DELETE FROM Empleado WHERE CodEmpleado=?;";
 
     public void Insertar(Empleado empleado) {
         try {
@@ -124,7 +124,7 @@ public class EmpleadoDAO {
         return empleado;
     }
 
-    public int Actualizar(Empleado empleado) {
+    public int Actualizar(Empleado empleado) {  // El empleado me actualiza raro
         int registros = 0;
         try {
             connection = con.getConnection();
@@ -135,9 +135,7 @@ public class EmpleadoDAO {
             ps.setString(3, empleado.getaMaterno());
             ps.setString(4, empleado.getGenero());
             ps.setDate(5, java.sql.Date.valueOf(empleado.getFechaNacimiento()));
-//            ps.setString(5, empleado.getFechaNacimiento());
             ps.setDate(6, java.sql.Date.valueOf(empleado.getFechaContratacion()));
-//            ps.setString(6, empleado.getFechaContratacion());
             ps.setString(7, empleado.getDireccion());
             ps.setString(8, empleado.getCorreo());
             ps.setString(9, empleado.getTelefono());
@@ -159,21 +157,38 @@ public class EmpleadoDAO {
         return registros;
     }
 
-
-    public Empleado Eliminar (int CodEmpleado) {
-        Empleado empleado = getEmpleado(CodEmpleado);
+    public Empleado Eliminar (int codEmpleado) {
+        Empleado empleado = getEmpleado(codEmpleado);
+        if (empleado == null)
+            return null;
         try {
-            if (empleado == null)
-                return null;
-            this.ps = this.connection.prepareStatement(deleteSQL);
+            ps = connection.prepareStatement (deleteSQL);
+            ps.setInt(1, codEmpleado);
+            ps.executeUpdate();
 
-            this.ps.setInt(1, CodEmpleado);
-            this.ps.executeUpdate();
-
+            System.out.println("Registro Eliminado!!!");
             con.close(ps);
+            con.close(connection);
         }catch (Exception e) {
             e.printStackTrace();
         }
         return empleado;
     }
+
+//    public Empleado Eliminar (int CodEmpleado) {
+//        Empleado empleado = getEmpleado(CodEmpleado);
+//        try {
+//            if (empleado == null)
+//                return null;
+//            this.ps = this.connection.prepareStatement(deleteSQL);
+//
+//            this.ps.setInt(1, CodEmpleado);
+//            this.ps.executeUpdate();
+//
+//            con.close(ps);
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return empleado;
+//    }
 }

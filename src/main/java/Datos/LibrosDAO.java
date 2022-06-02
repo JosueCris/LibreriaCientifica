@@ -1,6 +1,7 @@
 package Datos;
 
 import Modelo.Editorial;
+import Modelo.Empleado;
 import Modelo.Libros;
 
 import java.sql.*;
@@ -21,30 +22,31 @@ public class LibrosDAO {
 // Esto lo tengo pendiente en lo que resuelvo mi conflicto con la incongruencia entre la BD y los constructores
     private static final String insertSQL = "INSERT INTO Libros " +
                                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
-    private static final String selectSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante, Libros.Status" +
-                                            " FROM Libros" +
-                                            " JOIN Editorial" +
-                                            " ON Libros.R_Editorial = Editorial.CodEditorial" +
-                                            " JOIN Idioma" +
-                                            " ON Libros.R_Idioma = Idioma.CodIdioma" +
-                                            " JOIN Materia" +
-                                            " ON Libros.R_Materia = Materia.CodMateria" +
-                                            " JOIN Estante" +
-                                            " ON Libros.R_Estante = Estante.CodEstante;";
+    private static final String selectSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante, Libros.Status " +
+                                            "FROM Libros " +
+                                            "JOIN Editorial " +
+                                            "ON Libros.R_Editorial = Editorial.CodEditorial " +
+                                            "JOIN Idioma " +
+                                            "ON Libros.R_Idioma = Idioma.CodIdioma " +
+                                            "JOIN Materia " +
+                                            "ON Libros.R_Materia = Materia.CodMateria " +
+                                            "JOIN Estante " +
+                                            "ON Libros.R_Estante = Estante.CodEstante " +
+                                            "WHERE Libros.Status='true';";
     private static final String updateSQL = "UPDATE Libros " +
                                             "SET Titulo=?, Año_Edicion=?, R_Editorial=?,R_Idioma=?, Numero_Paginas=?, R_Materia=?, Precio=?, Sinopsis=?, R_Estante=?, Status=? WHERE ISBN=?";
-    private static final String searchSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante" +
-                                            " FROM Libros" +
-                                            " JOIN Editorial" +
-                                            " ON Libros.R_Editorial = Editorial.CodEditorial" +
-                                            " JOIN Idioma" +
-                                            " ON Libros.R_Idioma = Idioma.CodIdioma" +
-                                            " JOIN Materia" +
-                                            " ON Libros.R_Materia = Materia.CodMateria" +
-                                            " JOIN Estante" +
-                                            " ON Libros.R_Estante = Estante.CodEstante" +
-                                            " WHERE ISBN=?;";
-    private static final String deleteSQL = "DELETE * FROM Libro WHERE ISBN=?;";
+    private static final String searchSQL = "SELECT Libros.ISBN, libros.Titulo, Libros.Año_Edicion, Editorial.Nombre_Editorial AS Editorial, Idioma.Nombre_Idioma AS Idioma, Libros.Numero_Paginas, Materia.Nombre_Materia AS Materia, Libros.Precio, Libros.Sinopsis, Estante.codEstante AS Estante, Libros.Status " +
+                                            "FROM Libros " +
+                                            "JOIN Editorial " +
+                                            "ON Libros.R_Editorial = Editorial.CodEditorial " +
+                                            "JOIN Idioma " +
+                                            "ON Libros.R_Idioma = Idioma.CodIdioma " +
+                                            "JOIN Materia " +
+                                            "ON Libros.R_Materia = Materia.CodMateria " +
+                                            "JOIN Estante " +
+                                            "ON Libros.R_Estante = Estante.CodEstante " +
+                                            "WHERE ISBN=?;";
+    private static final String deleteSQL = "UPDATE Libros SET Status = false WHERE ISBN=?;";
 
 
     public void Insertar(Libros libros) {
@@ -168,8 +170,25 @@ public class LibrosDAO {
         }catch (Exception e) {
             e.printStackTrace();
         }
-
        return registros;
+    }
+
+    public Libros Eliminar (String isbn) {
+        Libros libros = getLibros(isbn);
+        if (libros == null)
+            return null;
+        try {
+            ps = connection.prepareStatement (deleteSQL);
+            ps.setString(1, isbn);
+            ps.executeUpdate();
+
+            System.out.println("Registro Eliminado!!!");
+            con.close(ps);
+            con.close(connection);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return libros;
     }
 
 }

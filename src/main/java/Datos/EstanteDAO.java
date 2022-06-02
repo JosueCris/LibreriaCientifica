@@ -19,7 +19,7 @@ public class EstanteDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Estante VALUES (?, ?, ?);";
-    private static final String selectSQL = "SELECT * FROM Estante;";
+    private static final String selectSQL = "SELECT * FROM Estante ORDER BY CodEstante;";
     private static final String searchSQL = "SELECT * FROM Estante WHERE CodEstante = ?;";
     private static final String updateSQL = "UPDATE Estante SET Numero_Ejemplares=?, Pasillo=? WHERE CodEstante=?";
 

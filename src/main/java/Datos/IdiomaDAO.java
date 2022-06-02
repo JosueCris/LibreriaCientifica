@@ -18,7 +18,7 @@ public class IdiomaDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Idioma VALUES (?, ?);";
-    private static final String selectSQL = "SELECT * FROM Idioma;";
+    private static final String selectSQL = "SELECT * FROM Idioma ORDER BY CodIdioma;";
     private static final String searchSQL = "SELECT * FROM Idioma WHERE CodIdioma = ?;";
     private static final String updateSQL = "UPDATE Idioma SET Nombre_Idioma=? WHERE CodIdioma=?";
 

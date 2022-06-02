@@ -18,7 +18,7 @@ public class CargoDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Cargo VALUES (?, ?);";
-    private static final String selectSQL = "SELECT * FROM Cargo;";
+    private static final String selectSQL = "SELECT * FROM Cargo ORDERBY CodCargo;";
     private static final String searchSQL = "SELECT * FROM Cargo WHERE CodCargo = ?;";
     private static final String updateSQL = "UPDATE Cargo SET Nombre_Cargo=? WHERE CodCargo=?";
 

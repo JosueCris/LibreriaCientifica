@@ -27,8 +27,8 @@ public class Main {
 //        CargoDAO cargoDAO = new CargoDAO(connection);
 //        Cargo cargo = new Cargo();
 //        cargoDAO.getCargo(8);
-//        Cargo cargo = new Cargo(8, "Ingeniero");
-        //cargoDAO.Insertar(cargo);
+//        Cargo cargo = new Cargo(8, "Contador");
+//        cargoDAO.Insertar(cargo);
 //        cargoDAO.Actualizar(cargo);
 //        cargoDAO.Consulta(cargo);
 
@@ -37,6 +37,7 @@ public class Main {
 //        clienteDAO.getCliente(7);
 //        Cliente cliente = new Cliente(1, "Sergio", "Bustamante", "Palmeros", "dragonballgt@hotmail.com", "2851009413");
 //        clienteDAO.Actualizar(cliente);
+//        clienteDAO.Eliminar(10);
 //        clienteDAO.Consulta(cliente);
 
 
@@ -45,6 +46,7 @@ public class Main {
 //        editorialDAO.getEditorial(12);
 //        Editorial editorial = new Editorial(2, "Rokubi", "Jesse Pinkman", "2291068899", "jepink@gmail.com", "Las Rosas, New Mexico", "Albuquerque", "EUA");
 //        editorialDAO.Actualizar(editorial);
+//        editorialDAO.Eliminar(8);
 //        editorialDAO.Consulta(editorial);
 
 
@@ -54,6 +56,7 @@ public class Main {
 //        Empleado empleado = new Empleado(6, "Rosa", "Pedro", "Luis", "Femenino", "2000-09-21", "2020-06-26", "Lomas 4", "rosapelu@gmail.com", "2291093618","5", true);
 //        empleadoDAO.Actualizar(empleado);
 //        Empleado empleado = empleadoDAO.getEmpleado(7);
+//        empleadoDAO.Eliminar(4);
 //        empleadoDAO.Consulta(empleado);
 
 //        System.out.println(empleado);
@@ -78,11 +81,12 @@ public class Main {
 
 //        LibrosDAO librosDAO = new LibrosDAO(connection);
 //        Libros libros = new Libros();
-//        librosDAO.getLibros("978-84-9838-677-6");
-//        Libros libros = new Libros("152-888-93hf", "Harry Potter y el prisionero de Azkaban", 2003, "7", "2", 361, "2", 289, "Harry conoce a su padrino y salvan a un hipogrifo", 11);
+//        librosDAO.getLibros("978-84-450-0067-0");
+//        Libros libros = new Libros("152-888-93hf", "Harry Potter y el prisionero de Azkaban", 2003, "7", "2", 361, "2", 289, "Harry conoce a su padrino y salvan a un hipogrifo", 11, true);
 //        Libros libros = new Libros();
 //        librosDAO.Insertar(libros);
 //        librosDAO.actualizar(libros));
+//        librosDAO.Eliminar("978-84-450-0067-0");
 //        librosDAO.Consulta(libros); // Compruebo que la consulta de todos los libros funciona bien
 
 
@@ -100,6 +104,7 @@ public class Main {
 //        notaVentaDAO.getNotaVenta(11);
 //        NotaVenta notaVenta = new NotaVenta(2, "3", "6", 1, "Efectivo", 2, "2022-11-12");
 //        notaVentaDAO.Actualizar(notaVenta);
+//        notaVentaDAO.Eliminar(12);
 //        notaVentaDAO.Consulta(notaVenta);
 
 

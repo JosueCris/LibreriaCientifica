@@ -21,7 +21,7 @@ public class UpdateCargo extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        codCargo = Integer.parseInt(req.getParameter("codCargo"));  // No me actualiza Caro, el error anda por acá
+        codCargo = Integer.parseInt(req.getParameter("codCargo"));
         nombreCargo = req.getParameter("nombreCargo");
 
         try{
@@ -38,3 +38,4 @@ public class UpdateCargo extends HttpServlet {
         resp.sendRedirect("/LibreriaCientifica/update_cargo.jsp");
     }
 }
+

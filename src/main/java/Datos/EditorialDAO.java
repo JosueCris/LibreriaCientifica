@@ -1,6 +1,5 @@
 package Datos;
 
-import Modelo.Cliente;
 import Modelo.Editorial;
 
 import java.sql.*;
@@ -19,9 +18,10 @@ public class EditorialDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Editorial VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
-    private static final String selectSQL = "SELECT * FROM Editorial;";
+    private static final String selectSQL = "SELECT * FROM Editorial WHERE Status='true' ORDER BY CodEditorial;";
     private static final String searchSQL = "SELECT * FROM Editorial WHERE CodEditorial = ?;";
     private static final String updateSQL = "UPDATE Editorial SET Nombre_Editorial=?, Contacto=?, Telefono=?, Correo=?, Direccion=?, Ciudad=?, Pais=?, Status=? WHERE codEditorial=?";
+    private static final String deleteSQL = "UPDATE Editorial SET Status = false WHERE CodEditorial=?;";
 
     public void Insertar(Editorial editorial) {
         try {
@@ -138,7 +138,25 @@ public class EditorialDAO {
         }catch (Exception e) {
             e.printStackTrace();
         }
-
         return registros;
+    }
+
+    public Editorial Eliminar (int codEditorial) {
+        Editorial editorial = getEditorial(codEditorial);
+        if (editorial == null)
+            return null;
+        try {
+            ps = connection.prepareStatement (deleteSQL);
+            ps.setInt(1, codEditorial);
+            ps.executeUpdate();
+
+            System.out.println("Registro Eliminado!!!");
+            con.close(ps);
+            con.close(connection);
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return editorial;
     }
 }

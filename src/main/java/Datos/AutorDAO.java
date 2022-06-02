@@ -18,7 +18,7 @@ public class AutorDAO {
     }
 
     private static final String insertSQL = "INSERT INTO Autor VALUES (?, ?);";
-    private static final String selectSQL = "SELECT * FROM Autor;";
+    private static final String selectSQL = "SELECT * FROM Autor ORDER BY CodAutor;";
     private static final String searchSQL = "SELECT * FROM Autor WHERE CodAutor = ?;";
     private static final String updateSQL = "UPDATE Autor SET Nombre_Completo=? WHERE CodAutor=?";
 
