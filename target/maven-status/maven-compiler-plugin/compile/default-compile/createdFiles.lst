@@ -1,4 +1,6 @@
+Controlador\EliminaEmpleado.class
 Controlador\ServletAutor.class
+Controlador\EliminaEditorial.class
 Controlador\ServletLibroAutor.class
 Datos\EmpleadoDAO.class
 Datos\AlmacenDAO.class
@@ -23,6 +25,7 @@ Datos\ClienteDAO.class
 Datos\LibroAlmacenDAO.class
 Datos\Conexion.class
 Controlador\UpdateLibros.class
+Controlador\EliminaNotaVenta.class
 Controlador\InsertaCargo.class
 Controlador\ServletNotaVenta.class
 Datos\IdiomaDAO.class
@@ -45,11 +48,13 @@ Modelo\Cliente.class
 Modelo\Cargo.class
 Controlador\ServletEstante.class
 Controlador\ServletLibroAlmacen.class
+Controlador\EliminaLibros.class
 Controlador\UpdateEditorial.class
 Controlador\UpdateCliente.class
 Controlador\InsertaAutor.class
 Controlador\ServletEmpleado.class
 Controlador\InsertaCliente.class
+Controlador\EliminaCliente.class
 Controlador\ServletIdioma.class
 Controlador\ServletAlmacen.class
 Modelo\Empleado.class

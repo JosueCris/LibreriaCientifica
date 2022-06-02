@@ -45,6 +45,12 @@
             <li><font face="times new roman" size="5px"><a href="update_materia.jsp">Actualiza Materia</a></font></li>
             <li><font face="times new roman" size="5px"><a href="update_notaventa.jsp">Actualiza Nota</a></font></li>
 
+            <li><font face="times new roman" size="5px"><a href="elimina_cliente.jsp">Elimina Cliente</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="elimina_empleado.jsp">Elimina Empleado</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="elimina_editorial.jsp">Elimina Editorial</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="elimina_libros.jsp">Elimina Libros</a></font></li>
+            <li><font face="times new roman" size="5px"><a href="elimina_notaventa.jsp">Elimina Nota</a></font></li>
+
         </div>
 
         <div class="contenido">

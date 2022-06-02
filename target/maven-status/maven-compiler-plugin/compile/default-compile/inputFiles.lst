@@ -11,6 +11,7 @@ C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Libro
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\ClienteDAO.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\UpdateCliente.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\ServletLibros.java
+C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\EliminaEditorial.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\UpdateAutor.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\InsertaMateria.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\ServletEmpleado.java
@@ -24,6 +25,7 @@ C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Cargo.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\ServletNotaVenta.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Estante.java
+C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\EliminaNotaVenta.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Materia.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Cliente.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Empleado.java
@@ -33,14 +35,17 @@ C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\InsertaCliente.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\InsertaNotaVenta.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\InsertaAlmacen.java
+C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\EliminaLibros.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\ServletEditorial.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\InsertaLibros.java
+C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\EliminaEmpleado.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Libros.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\UpdateEmpleado.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\ServletLibroAutor.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\ServletIdioma.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\InsertaEstante.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\EstanteDAO.java
+C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\EliminaCliente.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\AlmacenDAO.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\EmpleadoDAO.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\ServletLibroAlmacen.java

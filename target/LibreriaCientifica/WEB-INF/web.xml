@@ -167,6 +167,32 @@
     </servlet>
 
 
+    <servlet>
+        <servlet-name>EliminaCliente</servlet-name>
+        <servlet-class>Controlador.EliminaCliente</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EliminaEmpleado</servlet-name>
+        <servlet-class>Controlador.EliminaEmpleado</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EliminaEditorial</servlet-name>
+        <servlet-class>Controlador.EliminaEditorial</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EliminaLibros</servlet-name>
+        <servlet-class>Controlador.EliminaLibros</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EliminaNotaVenta</servlet-name>
+        <servlet-class>Controlador.EliminaNotaVenta</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>ServletAlmacen</servlet-name>
         <url-pattern>/ServletAlmacen</url-pattern>
@@ -324,6 +350,32 @@
     <servlet-mapping>
         <servlet-name>UpdateNotaVenta</servlet-name>
         <url-pattern>/UpdateNotaVenta</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>EliminaCliente</servlet-name>
+        <url-pattern>/EliminaCliente</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EliminaEmpleado</servlet-name>
+        <url-pattern>/EliminaEmpleado</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EliminaEditorial</servlet-name>
+        <url-pattern>/EliminaEditorial</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EliminaLibros</servlet-name>
+        <url-pattern>/EliminaLibros</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>EliminaNotaVenta</servlet-name>
+        <url-pattern>/EliminaNotaVenta</url-pattern>
     </servlet-mapping>
 
 </web-app>
