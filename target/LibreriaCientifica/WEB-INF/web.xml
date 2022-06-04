@@ -7,47 +7,47 @@
 
     <servlet>
         <servlet-name>ServletAlmacen</servlet-name>
-        <servlet-class>Controlador.ServletAlmacen</servlet-class>
+        <servlet-class>Controlador.Almacen.ServletAlmacen</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletAutor</servlet-name>
-        <servlet-class>Controlador.ServletAutor</servlet-class>
+        <servlet-class>Controlador.Autor.ServletAutor</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletCargo</servlet-name>
-        <servlet-class>Controlador.ServletCargo</servlet-class>
+        <servlet-class>Controlador.Cargo.ServletCargo</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletCliente</servlet-name>
-        <servlet-class>Controlador.ServletCliente</servlet-class>
+        <servlet-class>Controlador.Cliente.ServletCliente</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletEditorial</servlet-name>
-        <servlet-class>Controlador.ServletEditorial</servlet-class>
+        <servlet-class>Controlador.Editorial.ServletEditorial</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletIdioma</servlet-name>
-        <servlet-class>Controlador.ServletIdioma</servlet-class>
+        <servlet-class>Controlador.Idioma.ServletIdioma</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletLibros</servlet-name>
-        <servlet-class>Controlador.ServletLibros</servlet-class>
+        <servlet-class>Controlador.Libros.ServletLibros</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletMateria</servlet-name>
-        <servlet-class>Controlador.ServletMateria</servlet-class>
+        <servlet-class>Controlador.Materia.ServletMateria</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>ServletNotaVenta</servlet-name>
-        <servlet-class>Controlador.ServletNotaVenta</servlet-class>
+        <servlet-class>Controlador.NotaVenta.ServletNotaVenta</servlet-class>
     </servlet>
 
 
@@ -56,140 +56,140 @@
 
     <servlet>
         <servlet-name>InsertaAlmacen</servlet-name>
-        <servlet-class>Controlador.InsertaAlmacen</servlet-class>
+        <servlet-class>Controlador.Almacen.InsertaAlmacen</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaAutor</servlet-name>
-        <servlet-class>Controlador.InsertaAutor</servlet-class>
+        <servlet-class>Controlador.Autor.InsertaAutor</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaCargo</servlet-name>
-        <servlet-class>Controlador.InsertaCargo</servlet-class>
+        <servlet-class>Controlador.Cargo.InsertaCargo</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaCliente</servlet-name>
-        <servlet-class>Controlador.InsertaCliente</servlet-class>
+        <servlet-class>Controlador.Cliente.InsertaCliente</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaEditorial</servlet-name>
-        <servlet-class>Controlador.InsertaEditorial</servlet-class>
+        <servlet-class>Controlador.Editorial.InsertaEditorial</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaEmpleado</servlet-name>
-        <servlet-class>Controlador.InsertaEmpleado</servlet-class>
+        <servlet-class>Controlador.Empleado.InsertaEmpleado</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaEstante</servlet-name>
-        <servlet-class>Controlador.InsertaEstante</servlet-class>
+        <servlet-class>Controlador.Estante.InsertaEstante</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaIdioma</servlet-name>
-        <servlet-class>Controlador.InsertaIdioma</servlet-class>
+        <servlet-class>Controlador.Idioma.InsertaIdioma</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaLibros</servlet-name>
-        <servlet-class>Controlador.InsertaLibros</servlet-class>
+        <servlet-class>Controlador.Libros.InsertaLibros</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaMateria</servlet-name>
-        <servlet-class>Controlador.InsertaMateria</servlet-class>
+        <servlet-class>Controlador.Materia.InsertaMateria</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>InsertaNotaVenta</servlet-name>
-        <servlet-class>Controlador.InsertaNotaVenta</servlet-class>
+        <servlet-class>Controlador.NotaVenta.InsertaNotaVenta</servlet-class>
     </servlet>
 
 
 
     <servlet>
         <servlet-name>UpdateAlmacen</servlet-name>
-        <servlet-class>Controlador.UpdateAlmacen</servlet-class>
+        <servlet-class>Controlador.Almacen.UpdateAlmacen</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateAutor</servlet-name>
-        <servlet-class>Controlador.UpdateAutor</servlet-class>
+        <servlet-class>Controlador.Autor.UpdateAutor</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateCargo</servlet-name>
-        <servlet-class>Controlador.UpdateCargo</servlet-class>
+        <servlet-class>Controlador.Cargo.UpdateCargo</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateCliente</servlet-name>
-        <servlet-class>Controlador.UpdateCliente</servlet-class>
+        <servlet-class>Controlador.Cliente.UpdateCliente</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateEditorial</servlet-name>
-        <servlet-class>Controlador.UpdateEditorial</servlet-class>
+        <servlet-class>Controlador.Editorial.UpdateEditorial</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateEmpleado</servlet-name>
-        <servlet-class>Controlador.UpdateEmpleado</servlet-class>
+        <servlet-class>Controlador.Empleado.UpdateEmpleado</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateEstante</servlet-name>
-        <servlet-class>Controlador.UpdateEstante</servlet-class>
+        <servlet-class>Controlador.Estante.UpdateEstante</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateIdioma</servlet-name>
-        <servlet-class>Controlador.UpdateIdioma</servlet-class>
+        <servlet-class>Controlador.Idioma.UpdateIdioma</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateLibros</servlet-name>
-        <servlet-class>Controlador.UpdateLibros</servlet-class>
+        <servlet-class>Controlador.Libros.UpdateLibros</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateMateria</servlet-name>
-        <servlet-class>Controlador.UpdateMateria</servlet-class>
+        <servlet-class>Controlador.Materia.UpdateMateria</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>UpdateNotaVenta</servlet-name>
-        <servlet-class>Controlador.UpdateNotaVenta</servlet-class>
+        <servlet-class>Controlador.NotaVenta.UpdateNotaVenta</servlet-class>
     </servlet>
 
 
     <servlet>
         <servlet-name>EliminaCliente</servlet-name>
-        <servlet-class>Controlador.EliminaCliente</servlet-class>
+        <servlet-class>Controlador.Cliente.EliminaCliente</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>EliminaEmpleado</servlet-name>
-        <servlet-class>Controlador.EliminaEmpleado</servlet-class>
+        <servlet-class>Controlador.Empleado.EliminaEmpleado</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>EliminaEditorial</servlet-name>
-        <servlet-class>Controlador.EliminaEditorial</servlet-class>
+        <servlet-class>Controlador.Editorial.EliminaEditorial</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>EliminaLibros</servlet-name>
-        <servlet-class>Controlador.EliminaLibros</servlet-class>
+        <servlet-class>Controlador.Libros.EliminaLibros</servlet-class>
     </servlet>
 
     <servlet>
         <servlet-name>EliminaNotaVenta</servlet-name>
-        <servlet-class>Controlador.EliminaNotaVenta</servlet-class>
+        <servlet-class>Controlador.NotaVenta.EliminaNotaVenta</servlet-class>
     </servlet>
 
 

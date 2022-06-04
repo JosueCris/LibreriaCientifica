@@ -10,12 +10,12 @@ public class Main {
         Connection connection = null;
 
         connection = con.getConnection();
-//        Almacen almacen = new Almacen();
-//        AlmacenDAO almacenDAO = new AlmacenDAO(connection);
+        Almacen almacen = new Almacen();
+        AlmacenDAO almacenDAO = new AlmacenDAO(connection);
 //        almacenDAO.getAlmacen(20);
 //        Almacen almacen = new Almacen(5, 8, 2);
 //        almacenDAO.Actualizar(almacen);
-//        almacenDAO.Consulta(almacen);
+        almacenDAO.Consulta(almacen);
 
 //        AutorDAO autorDAO = new AutorDAO(connection);
 //        Autor autor = new Autor();
