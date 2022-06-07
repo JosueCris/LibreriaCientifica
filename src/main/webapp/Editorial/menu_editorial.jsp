@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Menú Cargo</title>
+    <title>Menú Editorial</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/LibreriaCientifica/estilo1.css">
     <link rel="stylesheet" href="/LibreriaCientifica/select.css">

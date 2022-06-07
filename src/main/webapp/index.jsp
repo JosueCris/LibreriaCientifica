@@ -27,7 +27,6 @@
                         <li><font face="times new roman" size="5px"><a href="Libros/menu_libros.jsp">Libros</a></font></li>
                         <li><font face="times new roman" size="5px"><a href="Materia/menu_materia.jsp">Materia</a></font></li>
                         <li><font face="times new roman" size="5px"><a href="NotaVenta/menu_notaventa.jsp">Nota</a></font></li>
-
                     </ul>
                 </nav>
             </div>
