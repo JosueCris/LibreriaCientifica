@@ -37,6 +37,6 @@ public class UpdateAlmacen extends HttpServlet {
             e.printStackTrace();
         }
 
-        resp.sendRedirect("/LibreriaCientifica/update_almacen.jsp");
+        resp.sendRedirect("/LibreriaCientifica/Almacen/update_almacen.jsp");
     }
 }

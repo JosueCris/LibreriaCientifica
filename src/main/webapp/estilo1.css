@@ -1,9 +1,9 @@
-/*ttps://www.youtube.com/watch?v=ys2kaK8HgnA */
+/* https://www.youtube.com/watch?v=ys2kaK8HgnA */
 
 body {
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     color: white;
-    font-size: 1.2rem; /*tamaño de las letras*/
+    font-size: 1.2rem; /* tamaño de las letras */
     line-height: 1.6em; /* interlineado */
     margin: 0;
 }
@@ -15,7 +15,7 @@ h1 {
 
 /* parrafos */
 p {
-    margin-bottom: 1.6em; /*margen inferior funciona como enter entre parrafos*/
+    margin-bottom: 1.6em; /* margen inferior funciona como enter entre parrafos */
 }
 
 .container {
@@ -25,7 +25,7 @@ p {
 }
 
 .header {
-    background: #111f69;
+    background: #ffd4ba;
     color: white;
     padding: 2rem 0;
 
@@ -33,7 +33,7 @@ p {
     position: fixed;
     left: 0;
     top: 0;
-    /* ocuapamos todo el ancho */
+    /*esto abarca todo el ancho  de la pagina*/
     right: 0;
 }
 
