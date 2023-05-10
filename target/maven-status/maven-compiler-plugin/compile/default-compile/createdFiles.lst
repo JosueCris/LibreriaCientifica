@@ -15,7 +15,6 @@ Controlador\Autor\InsertaAutor.class
 Controlador\Editorial\EliminaEditorial.class
 Modelo\Idioma.class
 Controlador\Idioma\InsertaIdioma.class
-Datos\LibroAutorDAO.class
 Datos\EstanteDAO.class
 Controlador\Almacen\InsertaAlmacen.class
 Datos\EditorialDAO.class
@@ -27,7 +26,6 @@ Datos\CargoDAO.class
 Datos\ClienteDAO.class
 Controlador\Cargo\ServletCargo.class
 Controlador\Editorial\InsertaEditorial.class
-Datos\LibroAlmacenDAO.class
 Controlador\Cliente\ServletCliente.class
 Datos\Conexion.class
 Controlador\NotaVenta\ServletNotaVenta.class
@@ -43,7 +41,6 @@ Datos\MateriaDAO.class
 Controlador\Cliente\UpdateCliente.class
 Controlador\Materia\InsertaMateria.class
 Modelo\Autor.class
-Modelo\LibroAlmacen.class
 Controlador\Libros\InsertaLibros.class
 Controlador\Cargo\UpdateCargo.class
 Main.class
@@ -60,7 +57,6 @@ Controlador\Autor\ServletAutor.class
 Controlador\Estante\ServletEstante.class
 Controlador\Idioma\ServletIdioma.class
 Datos\AutorDAO.class
-Modelo\LibroAutor.class
 Controlador\Empleado\InsertaEmpleado.class
 Controlador\Materia\UpdateMateria.class
 Modelo\Almacen.class

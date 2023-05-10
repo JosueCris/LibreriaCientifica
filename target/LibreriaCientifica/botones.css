@@ -1,0 +1,56 @@
+form {
+    background-color: #ffd4ba;
+    border-radius: 6px;
+    color: #999;
+    padding: 10px;
+    margin: 0 auto;
+    width: 300px;
+}
+
+input, textarea {
+    outline: none;
+    border: 0;
+}
+
+.field {
+    border: solid 1px #ccc;
+    width: 98%;
+}
+
+.field:focus {
+    border-color: blue;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.opc {
+    border-radius: 12px;
+    display: inline-block;
+    text-decoration: none;
+    border: 1px #364275;
+    width: 70%;
+    height: 40px;
+    text-shadow: 0 1px 0 #364275;
+    font-size: 20px;
+    font-family: "Times New Roman", serif;
+    cursor: pointer;
+}
+
+.opc-green {
+    color: rgb(23, 23, 90);
+    background-color: #ffd4ba;
+}
+
+.opc-green:hover {
+    background-color: #b6abd3;
+}
+
+.opc-green:active {
+    background-color: #9099c4;
+}
+
+.center {
+    text-align: center;
+}

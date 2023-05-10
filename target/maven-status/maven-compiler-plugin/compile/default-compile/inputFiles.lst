@@ -9,7 +9,6 @@ C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Empleado\EliminaEmpleado.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\AutorDAO.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Libros\EliminaLibros.java
-C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\LibroAlmacen.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\ClienteDAO.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Empleado\UpdateEmpleado.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Almacen\ServletAlmacen.java
@@ -32,7 +31,6 @@ C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Libros\InsertaLibros.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Cliente.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Empleado.java
-C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\LibroAutor.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Cliente\InsertaCliente.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Editorial\EliminaEditorial.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Idioma\UpdateIdioma.java
@@ -57,8 +55,6 @@ C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Cargo\InsertaCargo.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\NotaVentaDAO.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Autor.java
-C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\LibroAlmacenDAO.java
-C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Datos\LibroAutorDAO.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Modelo\Idioma.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Empleado\InsertaEmpleado.java
 C:\Users\JOSUE TELLEZ\IdeaProjects\LibreriaCientifica\src\main\java\Controlador\Editorial\UpdateEditorial.java

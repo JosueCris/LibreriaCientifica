@@ -2,7 +2,7 @@ package Modelo;
 
 import java.io.Serializable;
 
-public class NotaVenta implements Serializable {
+public class NotaVenta extends Libros implements Serializable {
     private int codNota;
     private String rCliente;
     private String rLibro;
